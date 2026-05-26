@@ -1165,17 +1165,20 @@ a.pi-cta{text-decoration:none}
   background:linear-gradient(90deg,var(--lime),transparent);
   opacity:0.35;transform:translateX(24px)}
 .process-step:last-child::before{display:none}
-/* Process section — near-opaque: character sits behind, not bleeding through */
-section#process{background:rgba(8,8,8,0.88)}
+/* Process section — opaque enough that the character sits ambient, not through */
+section#process{background:rgba(6,6,6,0.93)}
 
+/* Decorative step numbers — pull back so they don't compete with heading text */
 .process-step .ps-num{font-family:var(--f-display);font-weight:800;
   font-size:clamp(56px,7vw,96px);line-height:0.9;letter-spacing:-0.03em;
-  color:rgba(168,255,62,0.22);margin-bottom:16px}
+  color:rgba(168,255,62,0.12);margin-bottom:16px}
 .process-step h4{font-family:var(--f-display);font-weight:800;
   font-size:clamp(20px,2vw,26px);line-height:1.1;letter-spacing:-0.01em;
-  margin:0 0 10px}
+  margin:0 0 10px;
+  text-shadow:0 2px 14px rgba(0,0,0,0.9),0 4px 28px rgba(0,0,0,0.6)}
 .process-step p{margin:0;color:#cfcfcf;font-size:15px;line-height:1.6;
-  max-width:32ch}
+  max-width:32ch;
+  text-shadow:0 1px 10px rgba(0,0,0,0.85)}
 @media (max-width:760px){
   .process-steps{grid-template-columns:1fr;gap:36px}
   .process-step::before{display:none}
