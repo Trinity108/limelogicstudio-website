@@ -1,1144 +1,396 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- DEPLOYMENT v29 - NEW DESIGN SYSTEM - GLOBAL LEVEL CARIBBEAN SOUL -->
+<!doctype html>
+<html lang="en" data-scroll-mode="full" data-marquee-palette="teal">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2WM3C6452"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X2WM3C6452');
-    </script>
-
-    <!-- Primary Meta Tags -->
-    <title>LimeLogic Studio | AI Content & Virtual Production (Trinidad)</title>
-    <meta name="title" content="LimeLogic Studio | AI Content & Virtual Production (Trinidad)">
-    <meta name="description" content="Caribbean-rooted AI content studio delivering campaign-ready reels, ads, and product visuals for brands and tourism—fast, polished, consistent.">
-    <meta name="keywords" content="Caribbean content creation, Trinidad media production, virtual production, AI content, event visuals, tourism marketing, campaign visuals, video production Trinidad">
-    <meta name="author" content="LimeLogic Studio">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://limelogicstudio.com/">
-    <meta property="og:title" content="LimeLogic Studio | AI Content & Virtual Production (Trinidad)">
-    <meta property="og:description" content="Caribbean-rooted AI content studio delivering campaign-ready reels, ads, and product visuals for brands and tourism—fast, polished, consistent.">
-    <meta property="og:image" content="https://limelogicstudio.com/assets/images/logo-wordmark.png">
-    <meta property="og:site_name" content="LimeLogic Studio">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://limelogicstudio.com/">
-    <meta property="twitter:title" content="LimeLogic Studio | AI Content & Virtual Production (Trinidad)">
-    <meta property="twitter:description" content="Caribbean-rooted AI content studio delivering campaign-ready reels, ads, and product visuals for brands and tourism—fast, polished, consistent.">
-    <meta property="twitter:image" content="https://limelogicstudio.com/assets/images/logo-wordmark.png">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://limelogicstudio.com/">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-    <link rel="stylesheet" href="css/style.css?v=67">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/logo-symbol.png">
-    <link rel="apple-touch-icon" href="assets/images/logo-symbol.png">
-
-    <!-- Intake endpoint — swap for n8n webhook once wired -->
-    <meta name="intake-endpoint" content="https://formspree.io/f/xeezjedk">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LimeLogic Studio — Brand, Web &amp; Motion · Trinidad</title>
+<meta name="description" content="LimeLogic Media Lab — a creative studio for brands with appetite. Brand identity, web design, motion, campaigns and content. Based in Port of Spain, Trinidad." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  :root {
+    --lime-intensity: 0.60;
+    --scrim-opacity: 0.30;
+    --vignette-opacity: 1.00;
+    --mq-bg: rgba(52,197,184,1.00);
+    --mq-bg-solid: rgb(52,197,184);
+    --mq-fg: #0A0A0A;
+    --mq-accent: #0A0A0A;
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header with Logo + Navigation -->
-    <header class="site-header">
-        <div class="header-container">
-            <a href="#hero" class="logo-link">
-                <img src="assets/images/logo-symbol.png" alt="LimeLogic Studio" class="site-logo">
-                <img src="assets/images/logo-wordmark.png" alt="LimeLogic Studio" class="site-wordmark">
-            </a>
-            <nav class="main-nav">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#how-it-works" class="nav-link">Process</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-                <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="nav-link nav-cta">Book a Call</a>
-            </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span class="hamburger"></span>
-            </button>
+<div class="grain on"></div>
+
+<div class="hero-stage" id="heroStage">
+  <video id="heroVideo" muted playsinline preload="auto" poster=""></video>
+  <img class="hero-image" id="heroImage"
+       src="assets/images/limedroid-hero.jpg"
+       alt="LimeLogic mascot — half-lime, half-circuit board" />
+  <div class="hero-stage-placeholder" id="heroStagePlaceholder">
+    <div class="hsp-character"></div>
+    <div class="hsp-meta">
+      <span class="hsp-dot"></span>
+      <span id="hspLabel">LOADING FILM…</span>
+    </div>
+  </div>
+  <div class="hero-vignette" id="heroVignette"></div>
+  <div class="hero-safe-zone" id="heroSafeZone"></div>
+</div>
+
+<div id="root">
+
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">
+        <i></i>
+        LimeLogic<span style="color:var(--muted);font-weight:500;margin-left:6px">Media Lab</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#words">Words</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="cta nav-cta" href="#contact">Start a project &#8594;</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mm-inner">
+          <ul>
+            <li style="transition-delay:0ms"><a href="#work"><span class="mm-num">01</span><span class="mm-label">Work</span><span class="mm-arrow">&#8594;</span></a></li>
+            <li style="transition-delay:60ms"><a href="#services"><span class="mm-num">02</span><span class="mm-label">Services</span><span class="mm-arrow">&#8594;</span></a></li>
+            <li style="transition-delay:120ms"><a href="#words"><span class="mm-num">03</span><span class="mm-label">Words</span><span class="mm-arrow">&#8594;</span></a></li>
+            <li style="transition-delay:180ms"><a href="#contact"><span class="mm-num">04</span><span class="mm-label">Contact</span><span class="mm-arrow">&#8594;</span></a></li>
+          </ul>
+          <div class="mm-foot">
+            <a class="cta" href="#contact" style="background:var(--lime);color:#0A0A0A">Start a project &#8594;</a>
+            <div class="mm-meta">
+              <a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a>
+              <span>Port of Spain &#183; TT</span>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <!-- Inner container for frame effect -->
-        <div class="hero-inner">
-            <!-- Video Background (Desktop) -->
-            <div class="hero-video-wrapper">
-                <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/limedroid-s6.jpg">
-                    <source src="assets/video/limelogic_hero_scroll.mp4" type="video/mp4">
-                </video>
-            </div>
+    <div class="tag">
+      <span class="pulse"></span>
+      <b>SCROLL</b> to drive the film
+    </div>
+    <div class="frame">
+      <div id="heroHeadline">
+        <h1>Creative<br>studio<br>for brands<br>with <em>juice.</em></h1>
+      </div>
+    </div>
+    <div class="meta">
+      <span><b>EST.</b> 2024</span>
+      <span><b>BASED.</b> Trinidad &amp; Tobago</span>
+      <span><b>WORKING.</b> Worldwide</span>
+    </div>
+    <div class="scroll">
+      Scroll<div class="bar"></div>
+    </div>
+  </header>
 
-            <!-- Static Image Background (Mobile) -->
-            <div class="hero-image-wrapper">
-                <div class="hero-image-placeholder"></div>
-            </div>
+  <div class="marquee mq-classic" id="marqueeTop">
+    <div class="track">
+      <span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span></span>
+      <span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span></span>
+    </div>
+  </div>
 
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content">
-                <div class="hero-text">
-
-                <!-- Location Badge -->
-                <div class="hero-location-badge animate-fade-in">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Based in Trinidad & Tobago</span>
-                </div>
-
-                <!-- H1: Value Proposition -->
-                <h1 class="hero-headline animate-fade-in">
-                    Campaign-ready visuals for Caribbean brands. Delivered in 7 days.
-                </h1>
-
-                <!-- Tagline Badge -->
-                <div class="hero-tagline-badge animate-fade-in-delay-1">
-                    Global Level. Caribbean Soul.
-                </div>
-
-                <p class="hero-supporting animate-fade-in-delay-1">
-                    From AI content packages to virtual production and event media, we move fast without sacrificing quality or cultural authenticity.
-                </p>
-                <div class="hero-cta-group animate-fade-in-delay-2">
-                    <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">
-                        <i class="fab fa-whatsapp"></i>
-                        Book a Discovery Call
-                    </a>
-                    <a href="#work" class="btn btn-secondary">
-                        <i class="fas fa-images"></i>
-                        View Our Work
-                    </a>
-                </div>
-                <div class="hero-trust-badges animate-fade-in-delay-3">
-                    <span class="trust-badge">
-                        <i class="fas fa-clock"></i>
-                        7-Day Delivery
-                    </span>
-                    <span class="trust-badge">
-                        <i class="fas fa-tag"></i>
-                        Fixed Pricing
-                    </span>
-                    <span class="trust-badge">
-                        <i class="fas fa-globe-americas"></i>
-                        100% Caribbean Context
-                    </span>
-                </div>
-            </div>
-
-            <div class="scroll-indicator">
-                <div class="scroll-arrow">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-        </div><!-- Close hero-inner -->
-    </section>
-
-    <!-- What You Get Section -->
-    <section id="what-you-get" class="what-you-get-section">
-        <div class="container">
-            <div class="what-you-get-content">
-                <h2 class="what-you-get-title">What You Get in 7 Days</h2>
-                <p class="what-you-get-subtitle">
-                    <strong>Standard AI Content Package</strong> — Perfect for social media campaigns, product launches, and brand storytelling
-                </p>
-                <div class="deliverables-grid">
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>6 Instagram Reels</strong> (15–60s each, platform-optimized)</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>12 Story Frames</strong> (IG/FB Stories, branded templates)</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>3 Ad Variants</strong> (static + video, A/B test-ready)</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Licensed Music</strong> + custom voiceover (if needed)</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Brand-Aligned Captions</strong> & hashtag strategy</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Source Files</strong> + full usage rights included</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>2 Rounds of Revisions</strong> (no questions asked)</span>
-                    </div>
-                    <div class="deliverable-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Platform-Ready Exports</strong> (all files organized & labeled)</span>
-                    </div>
-                </div>
-
-                <!-- Trust Signals -->
-                <div class="what-you-get-trust">
-                    <div class="trust-badge-inline">
-                        <i class="fas fa-clock"></i>
-                        <span><strong>7-Day Turnaround Guaranteed</strong></span>
-                    </div>
-                    <div class="trust-badge-inline">
-                        <i class="fas fa-shield-alt"></i>
-                        <span><strong>Fixed Pricing, No Hidden Fees</strong></span>
-                    </div>
-                    <div class="trust-badge-inline">
-                        <i class="fas fa-globe-americas"></i>
-                        <span><strong>100% Caribbean Context</strong></span>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="what-you-get-cta">
-                    <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                        <i class="fas fa-calendar-check"></i>
-                        Book a Discovery Call
-                    </a>
-                    <p class="what-you-get-note">
-                        <i class="fas fa-info-circle"></i>
-                        Packages customizable based on your campaign goals. Tourism, events, and brand packages available.
-                    </p>
-                </div>
-            </div>
+  <section class="s" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span class="idx">01</span>
+            <span>/ SELECTED WORK</span>
+            <span class="rule"></span>
+          </div>
+          <h2 class="h-section">Work that <span style="color:var(--lime)">moves.</span></h2>
         </div>
-    </section>
-
-    <!-- Credibility Bar -->
-    <section id="credibility" class="credibility-bar">
-        <div class="container">
-            <div class="credibility-grid">
-                <div class="credibility-card animate-on-scroll">
-                    <div class="credibility-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="credibility-number">50+</div>
-                    <div class="credibility-label">Projects Delivered</div>
-                </div>
-
-                <div class="credibility-card animate-on-scroll">
-                    <div class="credibility-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="credibility-number">7-Day</div>
-                    <div class="credibility-label">Avg. Turnaround</div>
-                </div>
-
-                <div class="credibility-card animate-on-scroll">
-                    <div class="credibility-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <div class="credibility-number">100%</div>
-                    <div class="credibility-label">Caribbean-Rooted</div>
-                </div>
-
-                <div class="credibility-card animate-on-scroll">
-                    <div class="credibility-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="credibility-number">40%</div>
-                    <div class="credibility-label">Cost Savings vs. Agencies</div>
-                </div>
-            </div>
+        <div class="right">
+          <div><b>ONE REAL CLIENT. FIVE CONCEPTS.</b></div>
+          <div style="margin-top:6px">HONEST ABOUT WHAT WE&#8217;VE BUILT &#8212; AND WHAT WE&#8217;D BUILD NEXT.</div>
         </div>
-    </section>
+      </div>
+      <div class="port-index" id="portIndex">
+        <ol id="portfolioList"></ol>
+        <div class="pi-card" id="piCard"></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Work Grid Section -->
-    <section id="work" class="work-grid-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Work</h2>
-                <p class="section-subtitle">Real client projects, creative productions, and concept work showcasing Caribbean storytelling at its finest.</p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="work-filters">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <button class="filter-btn" data-filter="brands">Brands</button>
-                <button class="filter-btn" data-filter="events">Events</button>
-                <button class="filter-btn" data-filter="content">Content & Media</button>
-            </div>
-
-            <!-- Work Grid -->
-            <div class="work-grid">
-
-                <!-- 1. Summit Cosmetics - CLIENT WORK -->
-                <div class="work-card" data-category="brands">
-                    <div class="work-card-image">
-                        <img src="assets/images/summit-campaign.png" alt="Summit Cosmetics TTMA Trade Convention">
-                        <div class="work-card-overlay">
-                            <div class="work-badge client-work">CLIENT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Summit Cosmetics — TTMA 2026</h3>
-                        <p class="work-card-category">Brands</p>
-                        <p class="work-card-description">Trade fair presence strategy and campaign materials for Summit Cosmetics at the TTMA Industry Convention. Our anchor client — ongoing retainer.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Social Strategy</span>
-                            <span class="work-tag">Event Content</span>
-                            <span class="work-tag">Campaign</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. Caribbean Rum Launch - CONCEPT WORK -->
-                <div class="work-card" data-category="brands">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/1B2838/A4D233?text=Caribbean+Rum+Brand+Launch" alt="Caribbean Rum Brand Launch">
-                        <div class="work-card-overlay">
-                            <div class="work-badge concept-work">CONCEPT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Premium Rum Brand Launch</h3>
-                        <p class="work-card-category">Brands</p>
-                        <p class="work-card-description">Luxury bottle reveal campaign with Caribbean heritage storytelling and premium lifestyle content.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Product Launch</span>
-                            <span class="work-tag">Lifestyle</span>
-                            <span class="work-tag">Social Ads</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. Fashion Brand Campaign - CONCEPT WORK -->
-                <div class="work-card" data-category="brands">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/0D1B2A/A4D233?text=Caribbean+Fashion+Brand" alt="Caribbean Fashion Brand">
-                        <div class="work-card-overlay">
-                            <div class="work-badge concept-work">CONCEPT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Fashion Brand Social Campaign</h3>
-                        <p class="work-card-category">Brands</p>
-                        <p class="work-card-description">Bold lifestyle content series showcasing Caribbean fashion culture and street style authenticity.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Fashion</span>
-                            <span class="work-tag">Lifestyle</span>
-                            <span class="work-tag">Reels</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Kafé Blue Event - CLIENT WORK -->
-                <div class="work-card" data-category="events">
-                    <div class="work-card-image">
-                        <img src="assets/images/kafé-blue-event.png" alt="Kafé Blue: Mavis John Retrospective">
-                        <div class="work-card-overlay">
-                            <div class="work-badge client-work">CLIENT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Kafé Blue: Mavis John Retrospective</h3>
-                        <p class="work-card-category">Events</p>
-                        <p class="work-card-description">Visual identity and event media for a cultural tribute celebrating T&T steel pan icon Mavis John. AI-produced concept art, video reel, and social campaign assets.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Event Promo</span>
-                            <span class="work-tag">Video Ad</span>
-                            <span class="work-tag">Cultural</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. Code Red Security - CLIENT WORK -->
-                <div class="work-card" data-category="events">
-                    <div class="work-card-image">
-                        <img src="assets/images/code-red-brand.jpg" alt="Code Red Security Services">
-                        <div class="work-card-overlay">
-                            <div class="work-badge client-work">CLIENT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Code Red Security Services</h3>
-                        <p class="work-card-category">Brands</p>
-                        <p class="work-card-description">Visual communication and brand support for a Trinidad-based security company. Company profile design and brand asset management.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Brand Support</span>
-                            <span class="work-tag">Visual Comms</span>
-                            <span class="work-tag">Security</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Carnival Festival Concept - CONCEPT WORK -->
-                <div class="work-card" data-category="events">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/1B2838/A4D233?text=Carnival+Music+Festival" alt="Carnival Music Festival">
-                        <div class="work-card-overlay">
-                            <div class="work-badge concept-work">CONCEPT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Carnival Music Festival</h3>
-                        <p class="work-card-category">Events</p>
-                        <p class="work-card-description">Full festival promo concept with soca energy, vibrant visuals, and Caribbean cultural pride.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Festival</span>
-                            <span class="work-tag">Carnival</span>
-                            <span class="work-tag">Music</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. Music Video Project 1 - CREATIVE WORK -->
-                <div class="work-card" data-category="content">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/0D1B2A/A4D233?text=Music+Video+Project+1" alt="Music Video Project 1">
-                        <div class="work-card-overlay">
-                            <div class="work-badge creative-work">CREATIVE WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Music Video — Project 1</h3>
-                        <p class="work-card-category">Content & Media</p>
-                        <p class="work-card-description">Full music video production combining AI-generated music with cutting-edge AI video production.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Music Video</span>
-                            <span class="work-tag">AI Production</span>
-                            <span class="work-tag">Original Music</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. Music Video Project 2 - CREATIVE WORK -->
-                <div class="work-card" data-category="content">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/1B2838/A4D233?text=Music+Video+Project+2" alt="Music Video Project 2">
-                        <div class="work-card-overlay">
-                            <div class="work-badge creative-work">CREATIVE WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Music Video — Project 2</h3>
-                        <p class="work-card-category">Content & Media</p>
-                        <p class="work-card-description">Cinematic music video showcasing our full creative pipeline from audio production to visual storytelling.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Music Video</span>
-                            <span class="work-tag">AI Production</span>
-                            <span class="work-tag">Cinematic</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. Trinidad Tourism Reel - CONCEPT WORK -->
-                <div class="work-card" data-category="content">
-                    <div class="work-card-image">
-                        <img src="https://placehold.co/600x400/0D1B2A/A4D233?text=Trinidad+Tourism+Reel" alt="Trinidad Tourism Reel">
-                        <div class="work-card-overlay">
-                            <div class="work-badge concept-work">CONCEPT WORK</div>
-                            <button class="work-card-cta">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-title">Trinidad Tourism Reel</h3>
-                        <p class="work-card-category">Content & Media</p>
-                        <p class="work-card-description">Destination showcase concept highlighting beaches, culture, and authentic Caribbean experiences.</p>
-                        <div class="work-card-tags">
-                            <span class="work-tag">Tourism</span>
-                            <span class="work-tag">Destination</span>
-                            <span class="work-tag">Reel</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- Close work-grid -->
-        </div><!-- Close container -->
-    </section>
-
-    <!-- Who We Serve Section -->
-    <section id="who-we-serve" class="who-we-serve">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Who We Partner With</h2>
-                <p class="section-subtitle">We create for brands and operators who refuse to settle for slow, generic, or overpriced.</p>
-            </div>
-
-            <div class="customer-grid">
-                <!-- Card 1: Brands -->
-                <div class="customer-card animate-on-scroll">
-                    <div class="customer-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3 class="customer-headline">Brands & Product Companies</h3>
-                    <p class="customer-body">
-                        Your agency charges too much. Freelancers are inconsistent. Stock photos feel foreign. You need campaign-ready visuals that reflect Caribbean reality—on budget, on brand, on time.
-                    </p>
-                    <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="customer-cta">
-                        Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Card 2: Tourism -->
-                <div class="customer-card animate-on-scroll">
-                    <div class="customer-icon">
-                        <i class="fas fa-umbrella-beach"></i>
-                    </div>
-                    <h3 class="customer-headline">Tourism & Hospitality</h3>
-                    <p class="customer-body">
-                        Drone shoots cost $30K. iPhone footage looks amateur. Tourists scroll past boring visuals. We deliver investor-grade virtual tours, promo videos, and pitch decks that book rooms and close deals.
-                    </p>
-                    <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="customer-cta">
-                        Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Card 3: Events -->
-                <div class="customer-card animate-on-scroll">
-                    <div class="customer-icon">
-                        <i class="fas fa-microphone-alt"></i>
-                    </div>
-                    <h3 class="customer-headline">Events & Activations</h3>
-                    <p class="customer-body">
-                        Event screens. Motion graphics. Same-day recap posts. Sponsor deliverables. We move at Carnival speed because we know yuh can't wait 3 weeks for a video.
-                    </p>
-                    <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="customer-cta">
-                        Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+  <section class="s s-services transparent" id="services">
+    <div class="edge-bracket l"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span class="idx">02</span>
+            <span>/ SERVICES</span>
+            <span class="rule"></span>
+          </div>
+          <h2 class="h-section">What we do, <span style="color:var(--lime)">end to end.</span></h2>
         </div>
-    </section>
-
-    <!-- Services Overview Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What We Create</h2>
-                <p class="section-subtitle">Three core services. One mission: Campaign-ready visuals at AI speed.</p>
-            </div>
-
-            <div class="services-grid">
-                <!-- Service 1: AI Content -->
-                <div class="service-card animate-on-scroll">
-                    <div class="service-visual">
-                        <div class="service-icon-large">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-headline">AI Content Packages</h3>
-                        <p class="service-description">
-                            <strong>What You Get:</strong> 6 Instagram Reels (15–60s) + 12 Story Frames + 3 Ad Variants (static + video) + Brand-Aligned Captions & Hashtags
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Platform-optimized for IG, FB, TikTok</li>
-                            <li><i class="fas fa-check"></i> Licensed music + custom voiceover</li>
-                            <li><i class="fas fa-check"></i> Source files + usage rights included</li>
-                        </ul>
-                        <div class="service-meta">
-                            <span class="meta-item"><i class="fas fa-clock"></i> 7-day delivery</span>
-                            <span class="meta-item"><i class="fas fa-sync-alt"></i> 2 revision rounds</span>
-                        </div>
-                        <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="service-cta">
-                            Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 2: Virtual Production -->
-                <div class="service-card service-card-featured animate-on-scroll">
-                    <div class="featured-badge">Most Popular</div>
-                    <div class="service-visual">
-                        <div class="service-icon-large">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-headline">Virtual Production & Design</h3>
-                        <p class="service-description">
-                            <strong>What You Get:</strong> 3 Hero Videos (30–90s each) + 6 B-Roll Clips + 3D Environment Renders + Lighting & Mood Variants + Licensed Soundtrack
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Pitch-ready 3D walkthroughs</li>
-                            <li><i class="fas fa-check"></i> Investor-grade presentations</li>
-                            <li><i class="fas fa-check"></i> Unlimited export formats</li>
-                        </ul>
-                        <div class="service-meta">
-                            <span class="meta-item"><i class="fas fa-clock"></i> 10–14 day delivery</span>
-                            <span class="meta-item"><i class="fas fa-sync-alt"></i> 2 revision rounds</span>
-                        </div>
-                        <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="service-cta">
-                            Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 3: Event Media -->
-                <div class="service-card animate-on-scroll">
-                    <div class="service-visual">
-                        <div class="service-icon-large">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-headline">Campaign & Event Media</h3>
-                        <p class="service-description">
-                            <strong>What You Get:</strong> 1 Highlight Reel (2–4 min) + 20 Social Cuts (15–30s each) + LED Screen Loops + Sponsor Deliverables + Same-Day Delivery
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Pre-event promos + teaser videos</li>
-                            <li><i class="fas fa-check"></i> Live social media coverage</li>
-                            <li><i class="fas fa-check"></i> Post-event recap packages</li>
-                        </ul>
-                        <div class="service-meta">
-                            <span class="meta-item"><i class="fas fa-clock"></i> Same-day delivery</span>
-                            <span class="meta-item"><i class="fas fa-sync-alt"></i> 1 revision round</span>
-                        </div>
-                        <a href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" class="service-cta">
-                            Book a Discovery Call <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="right">
+          <div><b>SIX DISCIPLINES. ONE STUDIO.</b></div>
+          <div style="margin-top:6px">WE PICK UP AT STRATEGY AND HAND OFF AT LAUNCH &#8212; OR ANY POINT IN BETWEEN.</div>
         </div>
-    </section>
+      </div>
+      <div class="svc-numbered" id="servicesNumbered"></div>
+    </div>
+  </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Your Project, Simplified</h2>
-                <p class="section-subtitle">From discovery call to final delivery in 7–10 days. No pitch decks, no surprises, no drama.</p>
-            </div>
+  <div class="marquee mq-classic dark" id="marqueeBottom">
+    <div class="track">
+      <span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span></span>
+      <span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span><span>We Got the Juice</span><span>Brand</span><span>Web</span><span>Motion</span><span>Campaign</span><span>Content</span><span>Strategy</span></span>
+    </div>
+  </div>
 
-            <div class="process-timeline">
-                <!-- Step 1 -->
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">01</div>
-                    <div class="step-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3 class="step-title">Book a Call</h3>
-                    <p class="step-description">
-                        15-minute discovery call—we learn your brand, goals, and timeline. No pitch decks, no pressure.
-                    </p>
-                </div>
-
-                <!-- Connecting Line -->
-                <div class="timeline-connector"></div>
-
-                <!-- Step 2 -->
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">02</div>
-                    <div class="step-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="step-title">Get a Proposal</h3>
-                    <p class="step-description">
-                        Within 24 hours, you receive a fixed-price proposal with deliverables, timeline, and samples. Transparent, no surprises.
-                    </p>
-                </div>
-
-                <!-- Connecting Line -->
-                <div class="timeline-connector"></div>
-
-                <!-- Step 3 -->
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">03</div>
-                    <div class="step-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 class="step-title">Approve & Launch</h3>
-                    <p class="step-description">
-                        Pay 50% upfront, we kick off production. You get a concept preview in 48 hours—approve direction before we scale.
-                    </p>
-                </div>
-
-                <!-- Connecting Line -->
-                <div class="timeline-connector"></div>
-
-                <!-- Step 4 -->
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">04</div>
-                    <div class="step-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="step-title">Deliver & Iterate</h3>
-                    <p class="step-description">
-                        Final assets delivered in 7–10 days, platform-ready. Two revision rounds included. You own everything.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Process CTA -->
-            <div class="process-cta">
-                <a href="#contact" class="btn btn-primary btn-large">
-                    <i class="fas fa-calendar-check"></i>
-                    Book a Discovery Call
-                </a>
-                <p class="process-cta-note">
-                    <i class="fas fa-clock"></i> Most projects kick off within 48 hours
-                </p>
-            </div>
+  <section class="s" id="words">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span class="idx">03</span>
+            <span>/ WORDS</span>
+            <span class="rule"></span>
+          </div>
+          <h2 class="h-section">In other<br>people&#8217;s <span style="color:var(--lime)">words.</span></h2>
         </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Transparent Pricing, Zero Surprises</h2>
-                <p class="section-subtitle">Fixed-price packages designed for Trinidad budgets. No hidden fees. No hourly rates. Just clear deliverables.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Starter Tier -->
-                <div class="pricing-card animate-on-scroll">
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Starter</h3>
-                        <div class="pricing-amount">
-                            <span class="currency">TTD</span>
-                            <span class="price">4,500</span>
-                            <span class="price-range">– 6,500</span>
-                        </div>
-                        <p class="pricing-subtitle">SMEs, First Projects</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="emoji-icon">✓</span> 4 video assets (15–30sec)</li>
-                        <li><span class="emoji-icon">✓</span> 8 static images</li>
-                        <li><span class="emoji-icon">✓</span> 2 motion graphics loops</li>
-                        <li><span class="emoji-icon">✓</span> 2 revision rounds</li>
-                        <li><span class="emoji-icon">✓</span> 7-day delivery</li>
-                    </ul>
-                    <a href="#contact" class="pricing-cta">
-                        Book a Discovery Call
-                    </a>
-                </div>
-
-                <!-- Core Tier (Featured) -->
-                <div class="pricing-card pricing-card-featured animate-on-scroll">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Core</h3>
-                        <div class="pricing-amount">
-                            <span class="currency">TTD</span>
-                            <span class="price">8,000</span>
-                            <span class="price-range">– 15,000</span>
-                        </div>
-                        <p class="pricing-subtitle">Brands, Tourism, Campaigns</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="emoji-icon">✓</span> 6–10 video assets</li>
-                        <li><span class="emoji-icon">✓</span> 12–20 images</li>
-                        <li><span class="emoji-icon">✓</span> Custom voiceover & music</li>
-                        <li><span class="emoji-icon">✓</span> Virtual production OR event coverage</li>
-                        <li><span class="emoji-icon">✓</span> 10-day delivery</li>
-                    </ul>
-                    <a href="#contact" class="pricing-cta pricing-cta-featured">
-                        Book a Discovery Call
-                    </a>
-                </div>
-
-                <!-- Premium Tier -->
-                <div class="pricing-card animate-on-scroll">
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Premium</h3>
-                        <div class="pricing-amount">
-                            <span class="currency">TTD</span>
-                            <span class="price">25,000</span>
-                            <span class="price-range">– 45,000</span>
-                        </div>
-                        <p class="pricing-subtitle">Full Campaigns, Government</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="emoji-icon">✓</span> End-to-end campaign media</li>
-                        <li><span class="emoji-icon">✓</span> Event screens + social coverage</li>
-                        <li><span class="emoji-icon">✓</span> Dedicated project manager</li>
-                        <li><span class="emoji-icon">✓</span> Priority turnaround</li>
-                        <li><span class="emoji-icon">✓</span> Retainer options available</li>
-                    </ul>
-                    <a href="#contact" class="pricing-cta">
-                        Book a Discovery Call
-                    </a>
-                </div>
-            </div>
-
-            <!-- Pricing Note -->
-            <div class="pricing-note">
-                <p>
-                    <i class="fas fa-info-circle"></i>
-                    All prices are starting points—final quote based on scope. Retainer discounts available (10–15% off). Rush delivery +25%.
-                </p>
-            </div>
+        <div class="right">
+          <div><b>PLACEHOLDER COPY</b></div>
+          <div style="margin-top:6px">REAL TESTIMONIALS DROPPING ALONGSIDE THE NEXT TWO CLIENT LAUNCHES.</div>
         </div>
-    </section>
+      </div>
+      <div class="tst-editorial" id="tstEditorial"></div>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">Real feedback from Caribbean brands we've partnered with.</p>
-            </div>
+  <footer class="footer" id="contact">
+    <h2 class="wordmark">
+      We Got<br>the <em>Juice<span class="dot"></span></em>
+    </h2>
 
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"They understood the brief immediately. No back and forth, no mainland interpretation. Just exactly what we needed for the trade fair — on time, on brand."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Trade Exhibitor</h4>
-                            <p>Manufacturing & Distribution, T&T</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"5 days from brief to final cut. I've worked with agencies that take 5 weeks. LimeLogic moves like they have something to prove — and the work shows it."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Event Director</h4>
-                            <p>Live Entertainment, Trinidad</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"Fixed pricing was a relief—no surprises, no endless revisions drama. The content finally looks like it was made for our audience — because it was."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Brand Manager</h4>
-                            <p>Food & Beverage, Caribbean</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="contact-block">
+      <div class="contact-lede">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <span class="dot"></span>
+          <span class="idx">04</span>
+          <span>/ CONTACT</span>
+          <span class="rule"></span>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Everything you need to know before booking your discovery call.</p>
-            </div>
-
-            <div class="faq-grid">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>What happens in the discovery call?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We'll discuss your campaign goals, target audience, brand guidelines, and deliverable needs. If it's a good fit, we'll walk you through timeline, pricing, and next steps. No pressure, no obligation—just clarity.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>When does the 7-day timeline start?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Timeline starts <strong>after</strong> we receive your creative brief, brand assets, and 50% deposit. We'll send a kickoff checklist so you know exactly what we need upfront.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>What do you need from me to get started?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We'll need: (1) Creative brief or campaign overview, (2) Brand assets (logos, colors, fonts), (3) Visual references or mood boards, (4) Deadline and delivery format preferences. We'll guide you through it step by step.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>What formats do you deliver?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All major social formats: MP4 (1080x1920, 1080x1080, 1920x1080), JPG/PNG for static, organized by platform. You'll get full source files plus usage rights.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>How do revisions work?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All packages include <strong>2 rounds of revisions</strong>. We'll send a concept preview in 48 hours—you approve direction before we scale. Major scope changes may require a small add-on fee.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>What's your typical budget range?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Projects range from <strong>TTD $4,500 to $20,000+</strong> depending on scope. Starter packages start at TTD $4,500. Core campaigns (most popular) run TTD $8,000–$15,000. Premium or retainer work is custom-quoted.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>Can you do rush delivery?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Rush delivery (3–5 days) is available with a <strong>+25% rush fee</strong> and subject to current availability. Contact us ASAP if you have an urgent deadline.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="faq-item animate-on-scroll">
-                    <div class="faq-question">
-                        <h3>Do you provide licensed music?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! All video packages include <strong>commercially licensed music</strong> (no copyright strikes). We also offer custom voiceover and AI-generated music tailored to Caribbean vibes.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ CTA -->
-            <div class="faq-cta">
-                <p>Still have questions?</p>
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-comments"></i>
-                    Book a Discovery Call
-                </a>
-            </div>
+        <h3>Start a <em>project.</em></h3>
+        <p>We&#8217;re booking studio time for Q3 2026. Tell us what you&#8217;re building and what good looks like &#8212; we read every brief personally and reply within one working day.</p>
+        <div class="meta">
+          <div><b>Email.</b> <a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a></div>
+          <div><b>Studio.</b> Port of Spain, Trinidad &amp; Tobago</div>
+          <div><b>Hours.</b> Mon&#8211;Fri &#183; 9:00&#8211;18:00 AST</div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Build Something Sharp</h2>
-                <p class="section-subtitle">Ready to create campaign-ready visuals? Get in touch.</p>
-            </div>
-
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h3 style="font-family: var(--font-heading); color: var(--color-white); font-size: 24px; margin-bottom: 20px;">Get In Touch</h3>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <a href="https://wa.me/18687053555" target="_blank" rel="noopener">+1 (868) 705-3555</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Trinidad & Tobago</p>
-                        </div>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="social-links" style="margin-top: 30px;">
-                        <a href="https://instagram.com/limelogicstudio" target="_blank" rel="noopener" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/LimelogicStudio/" target="_blank" rel="noopener" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-
-                    <!-- WhatsApp CTA Button -->
-                    <a href="https://wa.me/18687053555?text=Hi%20LimeLogic%20-%20I%20would%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" class="btn btn-whatsapp" style="margin-top: 30px; display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-family: var(--font-heading);">
-                        <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
-                        Chat on WhatsApp
-                    </a>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form-wrapper">
-                    <form action="https://formspree.io/f/xeezjedk" method="POST" class="contact-form" id="contact-form">
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - LimeLogic Studio">
-
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="company">Company (optional)</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 15px; text-align: center;">
-                            Or email directly: <a href="mailto:hello@limelogicstudio.com" style="color: var(--color-lime); text-decoration: none;">hello@limelogicstudio.com</a>
-                        </p>
-                    </form>
-                </div>
-            </div>
+      <form class="contact-form" id="contactForm">
+        <div class="cf-row cf-pair">
+          <div class="cf-row">
+            <label>Name <span class="req">*</span></label>
+            <input required type="text" name="name" placeholder="Your name" />
+          </div>
+          <div class="cf-row">
+            <label>Email <span class="req">*</span></label>
+            <input required type="email" name="email" placeholder="you@company.com" />
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-branding">
-                    <h3>LimeLogic Studio</h3>
-                    <p class="footer-tagline">Global Level. Caribbean Soul.</p>
-                    <p class="footer-legal">LimeLogic Media Lab — Trinidad & Tobago</p>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p><a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a></p>
-                    <p><a href="https://wa.me/18687053555" target="_blank" rel="noopener">WhatsApp: +1 (868) 705-3555</a></p>
-                    <p><a href="https://instagram.com/limelogicstudio" target="_blank" rel="noopener">@limelogicstudio</a></p>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="#services">Services</a>
-                    <a href="#work">Our Work</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 LimeLogic Studio (LimeLogic Media Lab). All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://instagram.com/limelogicstudio" target="_blank" rel="noopener" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/LimelogicStudio/" target="_blank" rel="noopener" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="cf-row">
+          <label>Company <span class="hint">Optional</span></label>
+          <input type="text" name="company" placeholder="Where you work" />
         </div>
-    </footer>
+        <div class="cf-row">
+          <label>What do you need? <span class="hint">Pick any</span></label>
+          <div class="cf-chips">
+            <button type="button" class="cf-chip" data-value="Brand">Brand</button>
+            <button type="button" class="cf-chip" data-value="Web">Web</button>
+            <button type="button" class="cf-chip" data-value="Motion">Motion</button>
+            <button type="button" class="cf-chip" data-value="Campaign">Campaign</button>
+            <button type="button" class="cf-chip" data-value="Content">Content</button>
+            <button type="button" class="cf-chip" data-value="Strategy">Strategy</button>
+          </div>
+          <input type="hidden" name="services" id="servicesHidden" />
+        </div>
+        <div class="cf-row cf-pair">
+          <div class="cf-row">
+            <label>Budget <span class="hint">Ballpark</span></label>
+            <select name="budget">
+              <option value="">Select range</option>
+              <option>Under $10k USD</option>
+              <option>$10k &#8211; $25k</option>
+              <option>$25k &#8211; $50k</option>
+              <option>$50k &#8211; $100k</option>
+              <option>$100k+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="cf-row">
+            <label>Timeline</label>
+            <select name="timeline">
+              <option value="">Select window</option>
+              <option>ASAP</option>
+              <option>1&#8211;2 months</option>
+              <option>3&#8211;6 months</option>
+              <option>Later this year</option>
+              <option>Exploring</option>
+            </select>
+          </div>
+        </div>
+        <div class="cf-row">
+          <label>Tell us about it <span class="req">*</span></label>
+          <textarea required name="message" placeholder="What are you building? What does good look like?"></textarea>
+        </div>
+        <div class="cf-submit">
+          <div class="privacy">
+            By submitting you agree to our <a href="#privacy">privacy notice</a>. No spam, ever.
+          </div>
+          <button type="submit">Send it <span class="arrow">&#8594;</span></button>
+        </div>
+      </form>
 
-    <!-- Sticky WhatsApp Button -->
-    <a href="https://wa.me/18687053555?text=Hi%2C%20I%27m%20interested%20in%20LimeLogic%20services"
-       class="whatsapp-sticky"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Chat with LimeLogic on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+      <div class="cf-success" id="cfSuccess" style="display:none">
+        <div class="check">&#10003;</div>
+        <h4>Got it. We&#8217;ll be in touch.</h4>
+        <p>Usually within one working day. Check your inbox for a confirmation.</p>
+      </div>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="legal">
+      <span>&#169; 2026 LimeLogic Media Lab</span>
+      <span>Made in T&amp;T &#183; Deployed on Cloudflare</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var video = document.getElementById('heroVideo');
+  var stage = document.getElementById('heroStage');
+  var placeholder = document.getElementById('heroStagePlaceholder');
+  var label = document.getElementById('hspLabel');
+  var VIDEO_URL = 'assets/video/limelogic_hero_scroll.mp4';
+
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  var useFallback = isIOS || prefersReducedMotion || (isCoarsePointer && window.innerWidth <= 880);
+
+  var heroImage = document.getElementById('heroImage');
+  var duration = 0;
+  var videoReady = false;
+  var raf = null;
+  var lastT = -1;
+
+  if (useFallback) {
+    stage.classList.add('fallback-mode');
+    video.removeAttribute('src');
+    if (heroImage && heroImage.complete && heroImage.naturalWidth > 0) {
+      stage.classList.add('has-video');
+    } else if (heroImage) {
+      heroImage.addEventListener('load', function(){ stage.classList.add('has-video'); }, { once: true });
+    }
+  } else {
+    video.addEventListener('loadedmetadata', function(){
+      duration = video.duration || 0;
+      var seekableOK = video.seekable.length > 0 && video.seekable.end(0) >= duration - 0.5;
+      videoReady = duration > 0 && seekableOK;
+      if (videoReady) stage.classList.add('has-video');
+    });
+    video.addEventListener('error', function(){
+      stage.classList.add('no-video');
+      if (label) label.textContent = 'VIDEO FAILED TO LOAD';
+    });
+    fetch(VIDEO_URL)
+      .then(function(res){
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        var total = Number(res.headers.get('Content-Length')) || 0;
+        if (!total || !res.body) return res.blob();
+        var reader = res.body.getReader();
+        var chunks = [];
+        var received = 0;
+        function pump(){
+          return reader.read().then(function(d){
+            if (d.done) return new Blob(chunks, { type: 'video/mp4' });
+            chunks.push(d.value);
+            received += d.value.length;
+            var pct = Math.round((received / total) * 100);
+            if (label) label.textContent = 'LOADING FILM · ' + pct + '%';
+            return pump();
+          });
+        }
+        return pump();
+      })
+      .then(function(blob){
+        var url = URL.createObjectURL(blob);
+        video.src = url;
+        video.load();
+      })
+      .catch(function(e){
+        stage.classList.add('no-video');
+        if (label) label.textContent = 'VIDEO LOAD ERROR · ' + e.message;
+        video.src = VIDEO_URL;
+      });
+  }
+
+  function progress(){
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return 0;
+    var mode = document.documentElement.dataset.scrollMode || 'full';
+    if (mode === 'hero') {
+      var heroLen = window.innerHeight * 1.5;
+      return Math.max(0, Math.min(1, window.scrollY / heroLen));
+    }
+    return Math.max(0, Math.min(1, window.scrollY / docH));
+  }
+
+  function tick(){
+    raf = null;
+    var p = progress();
+    if (useFallback) {
+      if (heroImage) {
+        var scale = 1 + p * 0.06;
+        var translateY = -p * window.innerHeight * 0.05;
+        heroImage.style.transform = 'translate3d(0,' + translateY.toFixed(1) + 'px,0) scale(' + scale.toFixed(3) + ')';
+      }
+      return;
+    }
+    if (videoReady) {
+      var t = p * duration;
+      if (Math.abs(t - lastT) > 0.04) {
+        try { video.currentTime = t; lastT = t; } catch(e){}
+      }
+    } else {
+      placeholder.style.setProperty('--p', p.toFixed(3));
+    }
+  }
+  function schedule(){ if (!raf) raf = requestAnimationFrame(tick); }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  if (!useFallback) {
+    video.addEventListener('canplaythrough', function(){ videoReady = duration > 0; schedule(); });
+  }
+  schedule();
+})();
+</script>
+
+<script src="js/main.js"></script>
 </body>
 </html>
