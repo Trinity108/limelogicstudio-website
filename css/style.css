@@ -181,15 +181,17 @@ section.s:first-of-type{border-top:0}
 .hero h1{font-family:var(--f-display);font-weight:800;
   font-size:clamp(48px,9vw,140px);line-height:0.88;letter-spacing:-0.03em;
   margin:0;max-width:14ch;
-  text-shadow:0 2px 30px rgba(0,0,0,0.4)}
+  text-shadow:0 2px 16px rgba(0,0,0,0.85), 0 4px 40px rgba(0,0,0,0.5)}
 .hero h1 em{font-style:normal;color:var(--lime)}
 .hero .meta{position:absolute;left:var(--pad-x);bottom:32px;
   display:flex;gap:32px;font-family:var(--f-mono);font-size:11px;
-  color:rgba(245,245,245,0.6);letter-spacing:.06em;text-transform:uppercase}
+  color:rgba(245,245,245,0.7);letter-spacing:.06em;text-transform:uppercase;
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
 .hero .meta b{color:var(--text);font-weight:500}
 .hero .scroll{position:absolute;right:var(--pad-x);bottom:32px;
-  font-family:var(--f-mono);font-size:11px;color:rgba(245,245,245,0.6);
-  letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  font-family:var(--f-mono);font-size:11px;color:rgba(245,245,245,0.7);
+  letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
 .hero .scroll .bar{width:1px;height:32px;background:linear-gradient(180deg,var(--lime),transparent);
   animation:scroll-bar 2.4s ease-in-out infinite}
 @keyframes scroll-bar{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.4)}}
@@ -631,8 +633,10 @@ a.pi-cta{text-decoration:none}
   letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;
   border:1px solid var(--hair);border-radius:999px;color:var(--muted);
   background:rgba(0,0,0,0.25)}
-.s-services .svc-numbered .item .deliv span{border-color:rgba(255,255,255,0.18);
-  color:rgba(245,245,245,0.7)}
+.s-services .svc-numbered .item .deliv span{border-color:rgba(255,255,255,0.25);
+  color:rgba(245,245,245,0.88);
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 @media (max-width:760px){
   .svc-numbered .item{grid-template-columns:auto 1fr;gap:20px;padding:22px 18px}
   .svc-numbered .item .deliv{grid-column:1/-1;justify-content:flex-start;max-width:none}
@@ -901,13 +905,18 @@ a.pi-cta{text-decoration:none}
 @media (max-width:640px){
   /* Hero — keep one bold line of headline, scroll cue stays bottom */
   .hero{min-height:560px;height:100svh}
-  .hero .frame{inset:16px;padding:32px 0 24px}
+  /* Increased bottom padding to 96px — clears the 3-line meta strip (≈78px tall at bottom:24px) */
+  .hero .frame{inset:16px;padding:32px 0 96px}
   .hero h1{font-size:clamp(40px,11vw,56px);max-width:12ch;
-    text-shadow:0 2px 22px rgba(0,0,0,0.55)}
+    text-shadow:0 2px 14px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.7)}
   .hero .tag{top:76px;font-size:10px;padding:6px 10px}
-  .hero .meta{flex-direction:column;gap:6px;bottom:24px;font-size:10px}
-  .hero .scroll{bottom:24px;font-size:10px}
-  .hero .scroll .bar{height:24px}
+  /* Glass pill on mobile so meta reads clearly regardless of video frame */
+  .hero .meta{flex-direction:column;gap:6px;bottom:20px;font-size:10px;
+    background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    padding:10px 14px;border-radius:8px;
+    border:1px solid rgba(245,245,245,0.1)}
+  .hero .scroll{bottom:20px;font-size:10px}
 
   /* Sections — tighter rhythm */
   section.s{padding:64px 0}
@@ -988,13 +997,15 @@ a.pi-cta{text-decoration:none}
    HERO — tagline, value line, CTA buttons
    ───────────────────────────────────────────────────────────── */
 .hero-tagline{font-family:var(--f-mono);font-size:clamp(11px,1.2vw,14px);
-  letter-spacing:.1em;text-transform:uppercase;color:rgba(245,245,245,0.7);
-  margin:14px 0 0;font-weight:500}
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(245,245,245,0.85);
+  margin:14px 0 0;font-weight:500;
+  text-shadow:0 1px 12px rgba(0,0,0,0.9)}
 
 /* HERO_VALUE_LINE — scaffolded placeholder, swap with final copy */
 .hero-value-line{font-family:var(--f-body);font-size:clamp(14px,1.4vw,17px);
-  color:rgba(245,245,245,0.6);margin:10px 0 0;max-width:44ch;line-height:1.5;
-  font-style:italic}
+  color:rgba(245,245,245,0.75);margin:10px 0 0;max-width:44ch;line-height:1.5;
+  font-style:italic;
+  text-shadow:0 1px 10px rgba(0,0,0,0.85)}
 
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-cta-primary{display:inline-flex;align-items:center;gap:8px;
@@ -1008,7 +1019,8 @@ a.pi-cta{text-decoration:none}
 .hero-cta-primary:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 
 .hero-cta-secondary{display:inline-flex;align-items:center;gap:8px;
-  background:transparent;color:var(--text);border:1px solid rgba(245,245,245,0.35);
+  background:rgba(0,0,0,0.45);color:var(--text);border:1px solid rgba(245,245,245,0.35);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-radius:999px;padding:14px 24px;font-family:var(--f-mono);font-size:12px;
   font-weight:500;letter-spacing:.06em;text-transform:uppercase;
   text-decoration:none;transition:border-color .2s, background .2s, transform .2s;
