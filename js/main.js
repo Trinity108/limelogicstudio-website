@@ -63,35 +63,70 @@ var PORTFOLIO = [
   },
 ];
 
+// <!-- SERVICES_COPY --> — final outcome copy + TTD pricing drops in next pass
 var SERVICES = [
-  { n: '01', title: 'Brand Identity',
-    blurb: 'Marks, systems, and the rules that make them sing across every surface.',
-    deliverables: ['Logo systems', 'Brand guidelines', 'Naming', 'Verbal identity'] },
-  { n: '02', title: 'Web Design & Build',
-    blurb: 'Sites that load fast, read clearly, and convert without shouting.',
-    deliverables: ['Landing pages', 'Marketing sites', 'CMS integration', 'Cloudflare Pages deploy'] },
-  { n: '03', title: 'Motion & Video',
-    blurb: 'From three-second loops to ninety-second brand films.',
-    deliverables: ['Social cutdowns', 'Brand films', 'Product motion', 'Title sequences'] },
-  { n: '04', title: 'Campaign Direction',
-    blurb: 'A through-line for launches, seasons, and product moments.',
-    deliverables: ['Creative concept', 'Art direction', 'Media planning', 'Rollout'] },
-  { n: '05', title: 'Content Production',
-    blurb: 'Photography, video, and editorial — made for how people actually scroll.',
-    deliverables: ['Photo direction', 'Video production', 'Editorial', 'Social packages'] },
-  { n: '06', title: 'Strategy',
-    blurb: 'The reason behind the work — audience, positioning, message, measurement.',
-    deliverables: ['Brand strategy', 'Audience research', 'Positioning', 'Naming strategy'] },
+  {
+    n: '01',
+    title: 'Brand Foundation',
+    outcome: 'Walk away with a positioning, identity system, and brand guidelines your whole team can use from day one.',
+    deliverables: ['Brand positioning + messaging', 'Logo system + visual identity', 'Brand guidelines document'],
+    whoFor: 'New businesses and brands that have outgrown their current look.',
+    retainer: false,
+    // <!-- PRICING_TTD --> — final number coming next pass
+    pricingTTD: null,
+  },
+  {
+    n: '02',
+    title: 'Campaign Content Engine',
+    outcome: 'A steady stream of on-brand content, every month, without the scramble.',
+    deliverables: ['Monthly content calendar', 'Social graphics + short video', 'Captions + hashtag strategy'],
+    whoFor: 'Brands ready to show up consistently on social without burning out.',
+    retainer: true,
+    // <!-- PRICING_TTD --> — from TTD 3,400/mo
+    pricingTTD: 'From TTD 3,400 / mo',
+  },
+  {
+    n: '03',
+    title: 'AI Production Sprint',
+    outcome: 'Campaign-ready visuals and video in days, not weeks — built with AI tools most agencies haven\'t touched.',
+    deliverables: ['AI-generated imagery + composites', 'Short-form video edits', 'Brand-matched delivery'],
+    whoFor: 'Launches, campaigns, and moments that can\'t wait.',
+    retainer: false,
+    pricingTTD: null,
+  },
+  {
+    n: '04',
+    title: 'Web Build',
+    outcome: 'A site that loads fast, reads clearly, and turns visitors into leads — not just a pretty page.',
+    deliverables: ['Conversion-focused design', 'Mobile-first build', 'Cloudflare Pages deploy'],
+    whoFor: 'Businesses that need a website that actually works for their market.',
+    retainer: false,
+    pricingTTD: null,
+  },
+  {
+    n: '05',
+    title: 'Motion + Launch Pack',
+    outcome: 'Video content that stops the scroll — from concept brief to final cut, delivered launch-ready.',
+    deliverables: ['Brand reels + promos', 'Social video cuts (9:16 + 1:1)', 'Launch campaign assets'],
+    whoFor: 'Product launches, seasonal campaigns, and brand moments that need moving content.',
+    retainer: false,
+    pricingTTD: null,
+  },
+  {
+    n: '06',
+    title: 'Monthly Growth Retainer',
+    outcome: 'Full creative partnership — content, web, campaigns, and strategy in one monthly package. No juggling.',
+    deliverables: ['Content production + scheduling', 'Campaign strategy + creative direction', 'Monthly check-in + performance review'],
+    whoFor: 'Brands that want consistent growth without managing three separate agencies.',
+    retainer: true,
+    // <!-- PRICING_TTD --> — from TTD 6,800/mo
+    pricingTTD: 'From TTD 6,800 / mo',
+  },
 ];
 
-var TESTIMONIALS = [
-  { quote: 'They didn’t just rebrand us — they gave us a system our whole team could actually use. Six months in, we’re still finding new ways to stretch it.',
-    name: 'Client Name', role: 'Director of Brand', company: 'Placeholder Co.' },
-  { quote: 'The level of craft is genuinely rare for this market. Worth every conversation.',
-    name: 'Client Name', role: 'Founder & CEO', company: 'Placeholder Co.' },
-  { quote: 'Sharp thinking, fast turnarounds, and they actually push back when we’re wrong. That’s the part you can’t fake.',
-    name: 'Client Name', role: 'Head of Marketing', company: 'Placeholder Co.' },
-];
+// TESTIMONIALS — kept for reference; real quotes being collected
+// Will replace the proof-in-progress scaffold when received
+var TESTIMONIALS = [];
 
 // ─── ARTWORK RENDERER ────────────────────────────────────────────────────────
 // Generates typographic portfolio card artwork as HTML string.
@@ -401,9 +436,20 @@ function renderServices() {
   var html = '';
   SERVICES.forEach(function(svc) {
     var delivs = svc.deliverables.map(function(d) { return '<span>' + d + '</span>'; }).join('');
+    var badge = svc.retainer
+      ? '<span class="svc-retainer-badge" aria-label="Monthly retainer">Retainer</span>'
+      : '';
+    var ttd = svc.pricingTTD
+      ? '<div class="svc-ttd">' + svc.pricingTTD + '</div>'
+      : '';
     html += '<div class="item">';
     html += '<div class="n">' + svc.n + '</div>';
-    html += '<div class="body"><h3>' + svc.title + '</h3><p>' + svc.blurb + '</p></div>';
+    html += '<div class="body">';
+    html += '<div class="svc-title-row"><h3>' + svc.title + '</h3>' + badge + '</div>';
+    html += '<p class="svc-outcome">' + svc.outcome + '</p>';
+    html += '<p class="svc-who"><b>For:</b> ' + svc.whoFor + '</p>';
+    html += ttd;
+    html += '</div>';
     html += '<div class="deliv">' + delivs + '</div>';
     html += '</div>';
   });
@@ -411,38 +457,41 @@ function renderServices() {
   container.innerHTML = html;
 }
 
-// ─── RENDER TESTIMONIALS ─────────────────────────────────────────────────────
-
-var currentTst = 0;
+// ─── RENDER PROOF IN PROGRESS ────────────────────────────────────────────────
+// <!-- TESTIMONIALS_SCAFFOLD -->
+// Real testimonials being collected from Summit Cosmetics + early clients.
+// Swap proof-in-progress cards for real quotes when received.
 
 function renderTestimonials() {
   var container = document.getElementById('tstEditorial');
   if (!container) return;
 
-  var t = TESTIMONIALS[currentTst];
-  var dots = TESTIMONIALS.map(function(_, k) {
-    return '<i class="' + (k === currentTst ? 'on' : '') + '" data-idx="' + k + '"></i>';
-  }).join('');
-
   container.innerHTML = [
-    '<div class="quote-mark">&ldquo;</div>',
-    '<q>' + t.quote + '</q>',
-    '<div class="src">',
-      '<div class="av"></div>',
-      '<div>',
-        '<div class="name"><b>' + t.name + '</b></div>',
-        '<div class="role">' + t.role + ' &middot; ' + t.company + '</div>',
+    '<div class="pip-header">',
+      '<span class="pip-kicker">PROOF IN PROGRESS.</span>',
+      '<p class="pip-body">Real client testimonials are being collected now. Until they land, here&#8217;s what drives every project: clear strategy, premium output, fast turnaround, and work that earns its place in the market.</p>',
+    '</div>',
+    '<div class="proof-cards">',
+      '<div class="proof-card reveal">',
+        '<div class="pc-num">01</div>',
+        '<h4>Caribbean businesses need a real creative partner, not another vendor.</h4>',
+        '<p>Every client we take on is a candidate for a long-term growth retainer. We build the kind of work that keeps showing up — month after month.</p>',
+      '</div>',
+      '<div class="proof-card reveal">',
+        '<div class="pc-num">02</div>',
+        '<h4>AI production means more for your budget. We pass the efficiency to you.</h4>',
+        '<p>Work that used to take weeks now takes days. We\'re not charging legacy rates for AI-accelerated output — and that\'s a real difference for Caribbean SMBs.</p>',
+      '</div>',
+      '<div class="proof-card proof-card--featured reveal">',
+        '<div class="pc-num">&#8599;</div>',
+        '<h4>Real results are in progress. See the work while they land.</h4>',
+        '<a href="#work" class="pc-link">View selected work &#8594;</a>',
       '</div>',
     '</div>',
-    '<div class="dots">' + dots + '</div>',
   ].join('');
 
-  container.querySelectorAll('.dots i').forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      currentTst = parseInt(dot.dataset.idx, 10);
-      renderTestimonials();
-    });
-  });
+  // Trigger scroll reveal on newly rendered cards
+  if (typeof initScrollReveal === 'function') initScrollReveal();
 }
 
 // ─── HERO HEADLINE PARALLAX ──────────────────────────────────────────────────
@@ -526,6 +575,36 @@ function initContactForm() {
   });
 }
 
+// ─── SCROLL REVEAL ───────────────────────────────────────────────────────────
+
+function initScrollReveal() {
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('visible');
+    });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    obs.observe(el);
+  });
+}
+
+// ─── FOOTER YEAR ─────────────────────────────────────────────────────────────
+
+function initFooterYear() {
+  var el = document.getElementById('footer-year');
+  if (el) el.textContent = new Date().getFullYear();
+}
+
 // ─── INIT ────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -536,4 +615,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initHeroParallax();
   initNav();
   initContactForm();
+  initScrollReveal();
+  initFooterYear();
 });
