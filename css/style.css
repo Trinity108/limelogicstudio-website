@@ -1076,7 +1076,7 @@ a.pi-cta{text-decoration:none}
 /* Glass card — 93% opaque dark surface, fully legible over any video frame */
 .cta-inner{position:relative;width:100%;max-width:800px;
   padding:clamp(40px,6vw,64px) clamp(28px,5vw,56px);
-  background:rgba(6,6,6,0.93);
+  background:rgba(6,6,6,0.72);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border:1px solid rgba(168,255,62,0.2);border-radius:8px;
   box-shadow:0 0 0 1px rgba(168,255,62,0.06),0 40px 80px rgba(0,0,0,0.75),
