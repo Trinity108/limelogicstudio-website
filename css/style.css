@@ -1063,24 +1063,64 @@ a.pi-cta{text-decoration:none}
 }
 
 /* ─────────────────────────────────────────────────────────────
-   MID-PAGE CTA BLOCKS
+   MID-PAGE CTA BLOCKS — Terminal card, LimeDroid AI theme
+   Dark glass card floats deliberately over scroll-driven video.
+   Transparent outer band lets the video breathe around the card.
    ───────────────────────────────────────────────────────────── */
-.cta-block{padding:clamp(40px,6vw,72px) var(--pad-x);
+.cta-block{padding:clamp(32px,5vw,56px) var(--pad-x);
   display:flex;align-items:center;justify-content:center;
-  background:rgba(10,10,10,0.5);border-top:1px solid var(--hair);
-  border-bottom:1px solid var(--hair)}
-.cta-block a{display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--f-display);font-weight:800;
-  font-size:clamp(20px,2.8vw,34px);letter-spacing:-0.01em;
-  color:var(--text);text-decoration:none;
-  transition:color .2s, gap .2s}
-.cta-block a:hover{color:var(--lime);gap:18px}
-.cta-block a:focus-visible{outline:2px solid var(--lime);outline-offset:4px;border-radius:4px}
-.cta-block a .cta-arrow{color:var(--lime);font-size:0.9em;
-  transition:transform .25s cubic-bezier(.2,.8,.25,1)}
-.cta-block a:hover .cta-arrow{transform:translateX(6px)}
-@media (prefers-reduced-motion:reduce){
-  .cta-block a,.cta-block a .cta-arrow{transition:none}
+  background:transparent;
+  border-top:1px solid rgba(168,255,62,0.08);
+  border-bottom:1px solid rgba(168,255,62,0.08)}
+
+/* Glass card — 93% opaque dark surface, fully legible over any video frame */
+.cta-inner{position:relative;width:100%;max-width:800px;
+  padding:clamp(40px,6vw,64px) clamp(28px,5vw,56px);
+  background:rgba(6,6,6,0.93);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(168,255,62,0.2);border-radius:8px;
+  box-shadow:0 0 0 1px rgba(168,255,62,0.06),0 40px 80px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(168,255,62,0.14);
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+  text-align:center;overflow:hidden}
+
+/* Scanline texture — circuit-board grain (LimeDroid motif) */
+.cta-inner::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(0deg,
+    transparent 0px,transparent 3px,
+    rgba(168,255,62,0.018) 3px,rgba(168,255,62,0.018) 4px)}
+
+/* Terminal corner brackets — 4-corner AI interface motif */
+.cta-inner::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    /* top-left */
+    linear-gradient(to right,rgba(168,255,62,0.75),transparent) 16px 16px/28px 1px no-repeat,
+    linear-gradient(to bottom,rgba(168,255,62,0.75),transparent) 16px 16px/1px 28px no-repeat,
+    /* top-right */
+    linear-gradient(to left,rgba(168,255,62,0.75),transparent) calc(100% - 16px) 16px/28px 1px no-repeat,
+    linear-gradient(to bottom,rgba(168,255,62,0.75),transparent) calc(100% - 16px) 16px/1px 28px no-repeat,
+    /* bottom-left */
+    linear-gradient(to right,rgba(168,255,62,0.75),transparent) 16px calc(100% - 16px)/28px 1px no-repeat,
+    linear-gradient(to top,rgba(168,255,62,0.75),transparent) 16px calc(100% - 16px)/1px 28px no-repeat,
+    /* bottom-right */
+    linear-gradient(to left,rgba(168,255,62,0.75),transparent) calc(100% - 16px) calc(100% - 16px)/28px 1px no-repeat,
+    linear-gradient(to top,rgba(168,255,62,0.75),transparent) calc(100% - 16px) calc(100% - 16px)/1px 28px no-repeat}
+
+/* Card content stays above pseudo-element textures */
+.cta-inner > *{position:relative;z-index:1}
+
+.cta-block-text{font-family:var(--f-display);font-weight:800;
+  font-size:clamp(22px,3vw,40px);letter-spacing:-0.02em;
+  color:var(--text);margin:0;max-width:48ch;line-height:1.1}
+.cta-block-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cta-retainer-note{font-family:var(--f-mono);font-size:11px;
+  color:rgba(245,245,245,0.55);letter-spacing:.04em;margin:0;max-width:52ch}
+.cta-retainer-note a{color:var(--lime);text-decoration:none;
+  border-bottom:1px solid rgba(168,255,62,0.3)}
+.cta-retainer-note a:hover{border-color:var(--lime)}
+
+@media (max-width:520px){
+  .cta-inner{padding:32px 20px;gap:20px}
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1125,9 +1165,12 @@ a.pi-cta{text-decoration:none}
   background:linear-gradient(90deg,var(--lime),transparent);
   opacity:0.35;transform:translateX(24px)}
 .process-step:last-child::before{display:none}
+/* Process section — near-opaque: character sits behind, not bleeding through */
+section#process{background:rgba(8,8,8,0.88)}
+
 .process-step .ps-num{font-family:var(--f-display);font-weight:800;
   font-size:clamp(56px,7vw,96px);line-height:0.9;letter-spacing:-0.03em;
-  color:rgba(168,255,62,0.15);margin-bottom:16px}
+  color:rgba(168,255,62,0.22);margin-bottom:16px}
 .process-step h4{font-family:var(--f-display);font-weight:800;
   font-size:clamp(20px,2vw,26px);line-height:1.1;letter-spacing:-0.01em;
   margin:0 0 10px}
@@ -1184,37 +1227,33 @@ a.pi-cta{text-decoration:none}
 }
 
 /* ─────────────────────────────────────────────────────────────
-   CTA BLOCK — RICH LAYOUT (text heading + button group)
+   BUTTON PRIMITIVES
+   Lime = hero + form submit (primary brand action)
+   Teal = mid-page CTAs (AI-agent palette, tech-forward)
+   Ghost = secondary paired action
    ───────────────────────────────────────────────────────────── */
-.cta-block{flex-direction:column;gap:20px;text-align:center}
-.cta-block-text{font-family:var(--f-display);font-weight:800;
-  font-size:clamp(22px,3vw,40px);letter-spacing:-0.02em;
-  color:var(--text);margin:0;max-width:48ch;line-height:1.1}
-.cta-block-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.cta-retainer-note{font-family:var(--f-mono);font-size:11px;
-  color:var(--muted);letter-spacing:.04em;margin:0;
-  max-width:52ch}
-.cta-retainer-note a{color:var(--lime);text-decoration:none;
-  border-bottom:1px solid rgba(168,255,62,0.3)}
-.cta-retainer-note a:hover{border-color:var(--lime)}
-
-/* Generic button primitives */
 .btn{display:inline-flex;align-items:center;gap:8px;
   font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;
   text-transform:uppercase;font-weight:700;
   padding:14px 24px;border-radius:999px;text-decoration:none;
   border:1px solid transparent;
-  transition:background .2s, color .2s, border-color .2s, transform .18s;
+  transition:background .2s, color .2s, border-color .2s, transform .18s, box-shadow .2s;
   cursor:pointer;white-space:nowrap;min-height:44px}
 .btn-lime{background:var(--lime);color:#0A0A0A;border-color:var(--lime)}
-.btn-lime:hover{background:#c5ff6f;transform:translateY(-2px)}
+.btn-lime:hover{background:#c5ff6f;transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(168,255,62,0.3)}
 .btn-lime:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+/* Teal — mid-page CTAs. Cooler, AI-native, differentiates from hero lime. */
+.btn-teal{background:var(--teal);color:#0A0A0A;border-color:var(--teal)}
+.btn-teal:hover{background:#5fd9ce;transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(52,197,184,0.35)}
+.btn-teal:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 .btn-ghost{background:transparent;color:var(--text);
   border-color:rgba(245,245,245,0.28)}
 .btn-ghost:hover{border-color:var(--lime);color:var(--lime);transform:translateY(-2px)}
 .btn-ghost:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){
-  .btn,.btn-lime,.btn-ghost{transition:none!important;transform:none!important}
+  .btn,.btn-lime,.btn-teal,.btn-ghost{transition:none!important;transform:none!important;box-shadow:none!important}
 }
 @media (max-width:520px){
   .cta-block-btns{flex-direction:column;align-items:center}
