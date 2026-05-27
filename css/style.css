@@ -280,8 +280,10 @@ section.s:first-of-type{border-top:0}
 @media (max-width:880px){
   .nav .nav-links,.nav .nav-cta{display:none}
   .hamburger{display:flex}
-  /* Mobile — always solid so hamburger/brand never floats on bright content */
-  .nav{background:rgba(10,10,10,0.90)}
+  /* Mobile — always solid so hamburger/brand never floats on bright content.
+     backdrop-filter REMOVED: a parent with backdrop-filter creates a containing block
+     for position:fixed children in Safari/Chromium — traps .mobile-menu inside the nav strip. */
+  .nav{background:rgba(10,10,10,0.90);backdrop-filter:none;-webkit-backdrop-filter:none}
   .nav.scrolled{background:rgba(10,10,10,0.97)}
 }
 

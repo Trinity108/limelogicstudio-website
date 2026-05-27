@@ -71,23 +71,6 @@
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <div class="mobile-menu" id="mobileMenu">
-        <div class="mm-inner">
-          <ul>
-            <li style="transition-delay:0ms"><a href="#work"><span class="mm-num">01</span><span class="mm-label">Work</span><span class="mm-arrow">&#8594;</span></a></li>
-            <li style="transition-delay:60ms"><a href="#services"><span class="mm-num">02</span><span class="mm-label">Services</span><span class="mm-arrow">&#8594;</span></a></li>
-            <li style="transition-delay:120ms"><a href="#proof"><span class="mm-num">03</span><span class="mm-label">Proof</span><span class="mm-arrow">&#8594;</span></a></li>
-            <li style="transition-delay:180ms"><a href="#contact"><span class="mm-num">04</span><span class="mm-label">Contact</span><span class="mm-arrow">&#8594;</span></a></li>
-          </ul>
-          <div class="mm-foot">
-            <a class="cta" href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" style="background:var(--lime);color:#0A0A0A">Book a Discovery Call &#8594;</a>
-            <div class="mm-meta">
-              <a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a>
-              <span>Port of Spain &#183; TT</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </nav>
 
     <div class="tag">
@@ -502,5 +485,26 @@
 </script>
 
 <script src="js/main.js"></script>
+
+<!-- Mobile menu — direct child of body so position:fixed;inset:0 always means full viewport.
+     Must NOT be inside .nav: nav has backdrop-filter which creates a containing block in
+     Safari/Chromium, trapping fixed children inside the thin nav strip. -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-inner">
+    <ul>
+      <li style="transition-delay:0ms"><a href="#work"><span class="mm-num">01</span><span class="mm-label">Work</span><span class="mm-arrow">&#8594;</span></a></li>
+      <li style="transition-delay:60ms"><a href="#services"><span class="mm-num">02</span><span class="mm-label">Services</span><span class="mm-arrow">&#8594;</span></a></li>
+      <li style="transition-delay:120ms"><a href="#proof"><span class="mm-num">03</span><span class="mm-label">Proof</span><span class="mm-arrow">&#8594;</span></a></li>
+      <li style="transition-delay:180ms"><a href="#contact"><span class="mm-num">04</span><span class="mm-label">Contact</span><span class="mm-arrow">&#8594;</span></a></li>
+    </ul>
+    <div class="mm-foot">
+      <a class="cta" href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" style="background:var(--lime);color:#0A0A0A">Book a Discovery Call &#8594;</a>
+      <div class="mm-meta">
+        <a href="mailto:hello@limelogicstudio.com">hello@limelogicstudio.com</a>
+        <span>Port of Spain &#183; TT</span>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
