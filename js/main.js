@@ -510,9 +510,6 @@ function renderTestimonials() {
       '</div>',
     '</div>',
   ].join('');
-
-  // Trigger scroll reveal on newly rendered cards
-  if (typeof initScrollReveal === 'function') initScrollReveal();
 }
 
 // ─── HERO HEADLINE PARALLAX ──────────────────────────────────────────────────
@@ -611,6 +608,57 @@ function initContactForm() {
 // ─── SCROLL REVEAL ───────────────────────────────────────────────────────────
 
 function initScrollReveal() {
+
+  // ── 1. Selector maps ──────────────────────────────────────────────────────
+  // Section header triplets: eyebrow → heading → right column
+  var HEADER_SELECTORS = [
+    { sel: '.sec-head .eyebrow',   delay: 0   },
+    { sel: '.sec-head .h-section', delay: 80  },
+    { sel: '.sec-head .right',     delay: 160 },
+  ];
+
+  // Contact lede: h3 → paragraph
+  var LEDE_SELECTORS = [
+    { sel: '.contact-lede h3', delay: 0  },
+    { sel: '.contact-lede p',  delay: 80 },
+  ];
+
+  // Stagger groups: each element gets (index × delay)ms
+  // card:true adds .reveal-card for the shorter 0.55s duration
+  var STAGGER_GROUPS = [
+    { selector: '#portIndex .port-index li', delay: 60, card: false },
+    { selector: '#servicesNumbered .item',   delay: 60, card: true  },
+    { selector: '.proof-card',               delay: 80, card: true  },
+    { selector: '.process-step',             delay: 80, card: true  },
+  ];
+
+  // ── 2. Auto-tag elements ──────────────────────────────────────────────────
+  // classList.add is idempotent — safe to call on elements already tagged in HTML
+
+  HEADER_SELECTORS.forEach(function(item) {
+    document.querySelectorAll(item.sel).forEach(function(el) {
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', item.delay + 'ms');
+    });
+  });
+
+  LEDE_SELECTORS.forEach(function(item) {
+    document.querySelectorAll(item.sel).forEach(function(el) {
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', item.delay + 'ms');
+    });
+  });
+
+  STAGGER_GROUPS.forEach(function(group) {
+    document.querySelectorAll(group.selector).forEach(function(el, i) {
+      el.classList.add('reveal');
+      if (group.card) el.classList.add('reveal-card');
+      el.style.setProperty('--reveal-delay', (i * group.delay) + 'ms');
+    });
+  });
+
+  // ── 3. Reduced motion: snap everything visible immediately ────────────────
+  // CSS prefers-reduced-motion also handles this, but JS belt-and-suspenders
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) {
     document.querySelectorAll('.reveal').forEach(function(el) {
@@ -618,6 +666,8 @@ function initScrollReveal() {
     });
     return;
   }
+
+  // ── 4. IntersectionObserver: fires once per element ───────────────────────
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -625,7 +675,8 @@ function initScrollReveal() {
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
+
   document.querySelectorAll('.reveal').forEach(function(el) {
     obs.observe(el);
   });
