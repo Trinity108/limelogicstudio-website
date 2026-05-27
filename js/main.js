@@ -528,6 +528,18 @@ function initHeroParallax() {
 // ─── NAV HAMBURGER ───────────────────────────────────────────────────────────
 
 function initNav() {
+  // ── Scroll-aware nav: add .scrolled once user leaves the hero zone ──
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    // Threshold = 12% of viewport height — just enough to clear the hero tag pill
+    var scrollThreshold = Math.round(window.innerHeight * 0.12);
+    function onNavScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > scrollThreshold);
+    }
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+    onNavScroll(); // evaluate immediately on load (handles refresh-at-anchor)
+  }
+
   var hamburger = document.getElementById('hamburger');
   var mobileMenu = document.getElementById('mobileMenu');
   if (!hamburger || !mobileMenu) return;

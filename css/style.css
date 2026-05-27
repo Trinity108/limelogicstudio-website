@@ -213,8 +213,13 @@ section.s:first-of-type{border-top:0}
 /* Top nav (cosmetic placeholder so the page reads) — sits over hero stage */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px var(--pad-x);background:linear-gradient(180deg,rgba(10,10,10,0.7),transparent);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  padding:18px var(--pad-x);
+  background:linear-gradient(180deg,rgba(10,10,10,0.88) 0%,rgba(10,10,10,0.6) 60%,transparent 100%);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background .3s ease}
+/* Scrolled state — solid fill once user exits hero zone */
+.nav.scrolled{background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .nav .brand{display:flex;align-items:center;gap:10px;
   font-family:var(--f-display);font-weight:800;letter-spacing:-0.01em;
   font-size:18px;z-index:60;position:relative}
@@ -275,6 +280,9 @@ section.s:first-of-type{border-top:0}
 @media (max-width:880px){
   .nav .nav-links,.nav .nav-cta{display:none}
   .hamburger{display:flex}
+  /* Mobile — always solid so hamburger/brand never floats on bright content */
+  .nav{background:rgba(10,10,10,0.90)}
+  .nav.scrolled{background:rgba(10,10,10,0.97)}
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -624,7 +632,11 @@ a.pi-cta{text-decoration:none}
    SERVICES — transparent over video. Rows/cards use glass treatment
    so individual items have substance while the section breathes.
    ───────────────────────────────────────────────────────────── */
+/* Services transparent section — all heading text needs shadow protection over video */
 .s-services .sec-head{text-shadow:0 2px 24px rgba(0,0,0,0.6)}
+.s-services .h-section{text-shadow:0 2px 20px rgba(0,0,0,0.88),0 4px 40px rgba(0,0,0,0.65)}
+.s-services .eyebrow{text-shadow:0 1px 8px rgba(0,0,0,0.9)}
+.s-services .lede{text-shadow:0 1px 12px rgba(0,0,0,0.9)}
 .s-services .sec-head .right{color:rgba(245,245,245,0.7)}
 .s-services .sec-head .right b{color:var(--text)}
 
@@ -830,10 +842,10 @@ a.pi-cta{text-decoration:none}
 
 .contact-lede h3{font-family:var(--f-display);font-weight:800;
   font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-0.02em;
-  margin:0 0 18px;text-shadow:0 2px 24px rgba(0,0,0,0.5)}
+  margin:0 0 18px;text-shadow:0 2px 24px rgba(0,0,0,0.88),0 4px 48px rgba(0,0,0,0.6)}
 .contact-lede h3 em{font-style:normal;color:var(--lime)}
 .contact-lede p{margin:0 0 28px;color:#dcdcdc;font-size:16px;line-height:1.6;
-  max-width:42ch;text-shadow:0 1px 12px rgba(0,0,0,0.6)}
+  max-width:42ch;text-shadow:0 1px 12px rgba(0,0,0,0.88),0 2px 24px rgba(0,0,0,0.65)}
 .contact-lede .meta{font-family:var(--f-mono);font-size:11px;
   letter-spacing:.06em;text-transform:uppercase;color:rgba(245,245,245,0.65);
   display:flex;flex-direction:column;gap:6px;
@@ -1015,6 +1027,10 @@ a.pi-cta{text-decoration:none}
    on mobile GPUs, especially older Android. Replace with a heavier
    solid fill so legibility stays. */
 @media (max-width:760px){
+  /* Boost scrim on mobile — 0.30 is too light when video is behind content */
+  section.s{background:rgba(15,15,15,0.55)}
+  /* Keep transparent sections transparent (higher specificity wins) */
+
   section.s::before{backdrop-filter:none;-webkit-backdrop-filter:none;
     background:rgba(15,15,15,calc(var(--scrim-opacity,0.55) + 0.2))}
   .svc-bento .b,.s-services .svc-numbered .item{
@@ -1296,4 +1312,4 @@ section#process{background:rgba(6,6,6,0.72)}
 .subhead-caps{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);font-weight:500}
 .pip-body{color:#cfcfcf;font-size:15px;line-height:1.65;
-  max-width:60ch;margin:12px 0 0}
+  max-width:60ch;margin:12px 0 0;text-shadow:0 1px 10px rgba(0,0,0,0.85)}
