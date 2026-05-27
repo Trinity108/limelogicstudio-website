@@ -394,12 +394,9 @@ function initPortfolioHoverCard() {
         li.classList.add('is-hover');
 
         var scopePills = item.scope.map(function(s) { return '<span>' + s + '</span>'; }).join('');
-        // CTA removed from hover card — card follows cursor so button can never be clicked.
-        // Desktop click handler below handles navigation. Card is pure preview only.
-        var clickHint = item.url
-          ? '<div class="pi-cta" style="cursor:default">Click to open &#8599;</div>'
-          : '<div class="pi-cta" style="cursor:default">Click to expand &#8595;</div>';
-
+        // Hover card is pure preview — no interactive elements.
+        // Card follows cursor so nothing inside it can reliably be clicked.
+        // Row-level click handler below handles all navigation.
         piCard.innerHTML = [
           '<div class="pi-card-art">' + renderArtwork(item.tint) + '</div>',
           '<div class="pi-card-body">',
@@ -410,7 +407,6 @@ function initPortfolioHoverCard() {
             '<h4>' + item.project + '</h4>',
             '<p>' + item.blurb + '</p>',
             '<div class="pi-scope">' + scopePills + '</div>',
-            clickHint,
           '</div>',
         ].join('');
 
