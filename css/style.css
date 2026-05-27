@@ -408,9 +408,11 @@ section.s:first-of-type{border-top:0}
 .sec-head{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;
   margin-bottom:clamp(40px,6vw,80px)}
 @media (max-width:720px){.sec-head{grid-template-columns:1fr}}
-.sec-head .right{font-family:var(--f-mono);font-size:12px;color:var(--muted);
-  letter-spacing:.04em;text-transform:uppercase;text-align:right;max-width:28ch}
-.sec-head .right b{color:var(--text);font-weight:500}
+.sec-head .right{font-family:var(--f-mono);font-size:12px;color:rgba(245,245,245,0.72);
+  letter-spacing:.04em;text-transform:uppercase;text-align:right;max-width:28ch;
+  text-shadow:0 1px 10px rgba(0,0,0,0.92),0 2px 20px rgba(0,0,0,0.65)}
+.sec-head .right b{color:var(--text);font-weight:500;
+  text-shadow:0 1px 10px rgba(0,0,0,0.9)}
 
 /* Common card visuals */
 .tile{position:relative;display:block;color:inherit;overflow:hidden}
@@ -487,21 +489,28 @@ section.s:first-of-type{border-top:0}
   left:0;top:50%;width:8px;height:8px;background:var(--lime);
   border-radius:50%;transform:translateY(-50%);
   box-shadow:0 0 0 4px rgba(168,255,62,0.18)}
-.port-index li .num{font-family:var(--f-mono);font-size:12px;color:var(--muted);
-  letter-spacing:.04em;transition:color .25s}
+.port-index li .num{font-family:var(--f-mono);font-size:12px;color:rgba(245,245,245,0.65);
+  letter-spacing:.04em;transition:color .25s;
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
 .port-index li.is-hover .num{color:var(--lime)}
 .port-index li .name{font-family:var(--f-display);font-weight:800;
   font-size:clamp(24px,3.2vw,42px);line-height:1;letter-spacing:-0.02em;
   display:flex;align-items:center;gap:14px;
-  transition:color .25s, transform .3s}
+  transition:color .25s, transform .3s;
+  text-shadow:0 2px 14px rgba(0,0,0,0.8)}
 .port-index li.is-hover .name{color:var(--lime)}
 .port-index li .name b{color:var(--lime);margin-right:0;font-weight:800;
   font-size:0.5em;line-height:1;
   display:inline-flex;align-items:center;justify-content:center}
-.port-index li .scope-x{font-family:var(--f-mono);font-size:11px;color:var(--muted);
-  letter-spacing:.04em;text-transform:uppercase;text-align:right;min-width:180px}
-.port-index li .arrow{font-family:var(--f-mono);font-size:20px;color:var(--muted);
-  width:32px;text-align:right;transition:transform .3s, color .25s}
+/* scope-x — dark badge: matches services deliverable pill treatment */
+.port-index li .scope-x{font-family:var(--f-mono);font-size:11px;
+  color:rgba(245,245,245,0.82);
+  letter-spacing:.04em;text-transform:uppercase;text-align:right;min-width:180px;
+  background:rgba(6,6,6,0.65);padding:5px 12px;border-radius:4px;
+  border:1px solid rgba(245,245,245,0.12)}
+.port-index li .arrow{font-family:var(--f-mono);font-size:20px;color:rgba(245,245,245,0.55);
+  width:32px;text-align:right;transition:transform .3s, color .25s;
+  text-shadow:0 1px 6px rgba(0,0,0,0.9)}
 .port-index li.is-hover .arrow{transform:translateX(8px);color:var(--lime)}
 @media (max-width:760px){
   .port-index li{grid-template-columns:40px 1fr auto;padding:16px 0}
@@ -589,9 +598,11 @@ section.s:first-of-type{border-top:0}
 .port-sec-head{display:flex;align-items:baseline;justify-content:space-between;
   padding-bottom:14px}
 .port-sec-label{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--lime);font-weight:600}
+  text-transform:uppercase;color:var(--lime);font-weight:600;
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
 .port-sec-kicker{font-family:var(--f-body);font-size:12px;
-  color:var(--muted);font-style:italic}
+  color:rgba(245,245,245,0.6);font-style:italic;
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
 a.pi-cta{text-decoration:none}
 @media (max-width:760px){
   .port-section+.port-section{margin-top:36px}
@@ -647,6 +658,17 @@ a.pi-cta{text-decoration:none}
   color:rgba(245,245,245,0.88);
   background:rgba(0,0,0,0.65);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* Services transparent section — text-shadow on body content for legibility over video */
+.s-services .svc-numbered .item .body h3{
+  text-shadow:0 2px 14px rgba(0,0,0,0.8)}
+.s-services .svc-numbered .item .body p,
+.s-services .svc-numbered .item .svc-outcome{
+  text-shadow:0 1px 10px rgba(0,0,0,0.85)}
+.s-services .svc-numbered .item .svc-who{
+  color:rgba(245,245,245,0.7);
+  text-shadow:0 1px 8px rgba(0,0,0,0.9)}
+.s-services .svc-numbered .item .svc-who b{
+  color:rgba(245,245,245,0.88)}
 @media (max-width:760px){
   .svc-numbered .item{grid-template-columns:auto 1fr;gap:20px;padding:22px 18px}
   .svc-numbered .item .deliv{grid-column:1/-1;justify-content:flex-start;max-width:none}
