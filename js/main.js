@@ -2,11 +2,13 @@
 // Handles: portfolio render, services render, testimonials, nav, hover card, contact form
 
 // ─── SCROLL RESTORATION ───────────────────────────────────────────────────────
-// Safari restores scroll from bfcache (back-forward cache) even after manual
-// scrollRestoration is set. The pageshow event fires on BOTH normal load and
-// bfcache restore — catching the case where scrollTo(0,0) at parse time gets
-// overwritten by Safari's cache restore.
+// Nav links append a hash to the URL (e.g. /#proof). When that URL is reopened,
+// the browser scrolls straight to the anchor — scrollRestoration doesn't prevent
+// hash-based jumps. Strip the hash on load so the page always opens at the hero.
 if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+}
 window.scrollTo(0, 0);
 window.addEventListener('pageshow', function() { window.scrollTo(0, 0); });
 
