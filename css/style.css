@@ -1302,16 +1302,16 @@ section#process{background:rgba(6,6,6,0.72)}
    controls per-element stagger (set by initScrollReveal in JS).
    ───────────────────────────────────────────────────────────── */
 @keyframes drift-up{
-  from{opacity:0;transform:translateY(22px)}
+  from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:translateY(0)}
 }
 /* Hidden before observer fires */
-.reveal{opacity:0;transform:translateY(22px)}
+.reveal{opacity:0;transform:translateY(40px)}
 /* Animation fires on .visible — fill:both holds end state + hides during delay */
 .reveal.visible{
-  animation:drift-up 0.60s cubic-bezier(0.2,0.8,0.2,1) var(--reveal-delay,0ms) both}
+  animation:drift-up 0.70s cubic-bezier(0.2,0.8,0.2,1) var(--reveal-delay,0ms) both}
 /* Cards + row elements get a slightly snappier duration */
-.reveal.reveal-card.visible{animation-duration:0.55s}
+.reveal.reveal-card.visible{animation-duration:0.65s}
 /* Accessibility: cancel all animation for reduced-motion preference */
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.visible{
