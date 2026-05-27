@@ -1265,6 +1265,41 @@ section#process{background:rgba(6,6,6,0.72)}
 }
 
 /* ─────────────────────────────────────────────────────────────
+   LIME-LINE LEGIBILITY — #work and #services
+   The hero video has a bright vertical lime element (LimeDroid
+   spine) running center-frame. Default scrim (0.30) and the
+   transparent services section are not enough coverage for
+   white text to remain readable where they overlap.
+
+   Fix 1 — section backgrounds: darken both sections enough
+   that the lime element is dimmed to a safe contrast level.
+   Fix 2 — text-shadow aura: a 0-offset multi-layer dark shadow
+   creates a per-letter halo that protects text from ANY bright
+   background regardless of scroll position.
+   ───────────────────────────────────────────────────────────── */
+
+/* Work section: raise scrim from 0.30 → 0.72 */
+#work{background:rgba(15,15,15,0.72)}
+
+/* Services: transparent class = zero coverage; add protective dark tint.
+   ID selector overrides .s.transparent regardless of order. */
+#services{background:rgba(10,10,10,0.65)}
+
+/* Text-shadow aura — dark halo on headings + list names in both sections */
+#work .h-section,
+#work .sec-head .right,
+#work .eyebrow{
+  text-shadow:0 0 10px rgba(0,0,0,0.95),0 0 28px rgba(0,0,0,0.85),0 2px 16px rgba(0,0,0,0.9)}
+#work .port-index li .name{
+  text-shadow:0 0 8px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.92),0 2px 14px rgba(0,0,0,0.8)}
+#work .port-index li .num,
+#work .port-index li .arrow{
+  text-shadow:0 0 6px rgba(0,0,0,1),0 0 16px rgba(0,0,0,0.9)}
+/* Services heading aura — supplements the text-shadow we already added */
+#services .h-section{
+  text-shadow:0 0 10px rgba(0,0,0,0.95),0 0 28px rgba(0,0,0,0.85),0 2px 20px rgba(0,0,0,0.9)}
+
+/* ─────────────────────────────────────────────────────────────
    SCROLL REVEAL — Intersection Observer, no libraries
    ───────────────────────────────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(24px);
