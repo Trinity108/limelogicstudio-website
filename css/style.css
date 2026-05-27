@@ -424,6 +424,29 @@ section.s:first-of-type{border-top:0}
 .sec-head .right b{color:var(--text);font-weight:500;
   text-shadow:0 1px 10px rgba(0,0,0,0.9)}
 
+/* ── Mobile: text-protection card behind section headers ───────────────────
+   The hero image (LimeDroid character) is a fixed full-screen background.
+   Its lime/circuit seam runs vertically through center — any text over it
+   that spans full width will collide with that bright line.
+   Solution: dark card directly behind the header copy only. The background
+   still shows outside the card — LimeDroid stays visible in the surrounding
+   section padding area.
+   Right-align on .sec-head .right is bad UX on narrow screens; switch to left.
+   ───────────────────────────────────────────────────────────────────────── */
+@media (max-width:720px){
+  #work .sec-head,
+  #services .sec-head{
+    background:rgba(8,8,8,0.86);
+    border-radius:8px;
+    padding:24px 20px;
+    border:1px solid rgba(168,255,62,0.12)
+  }
+  .sec-head .right{
+    text-align:left;
+    max-width:none
+  }
+}
+
 /* Common card visuals */
 .tile{position:relative;display:block;color:inherit;overflow:hidden}
 .tile .art{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
