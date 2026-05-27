@@ -2,10 +2,13 @@
 // Handles: portfolio render, services render, testimonials, nav, hover card, contact form
 
 // ─── SCROLL RESTORATION ───────────────────────────────────────────────────────
-// Prevents Safari (and other browsers) restoring the last scroll position on load.
-// Without this, Safari re-opens the page at the footer instead of the hero.
+// Safari restores scroll from bfcache (back-forward cache) even after manual
+// scrollRestoration is set. The pageshow event fires on BOTH normal load and
+// bfcache restore — catching the case where scrollTo(0,0) at parse time gets
+// overwritten by Safari's cache restore.
 if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
 window.scrollTo(0, 0);
+window.addEventListener('pageshow', function() { window.scrollTo(0, 0); });
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
