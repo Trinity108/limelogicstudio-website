@@ -1,6 +1,12 @@
 // main.js — LimeLogic Studio production vanilla JS
 // Handles: portfolio render, services render, testimonials, nav, hover card, contact form
 
+// ─── SCROLL RESTORATION ───────────────────────────────────────────────────────
+// Prevents Safari (and other browsers) restoring the last scroll position on load.
+// Without this, Safari re-opens the page at the footer instead of the hero.
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+window.scrollTo(0, 0);
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 var PORTFOLIO = [
@@ -388,9 +394,11 @@ function initPortfolioHoverCard() {
         li.classList.add('is-hover');
 
         var scopePills = item.scope.map(function(s) { return '<span>' + s + '</span>'; }).join('');
-        var ctaHtml = item.url
-          ? '<div class="pi-cta">View project <span>&#8594;</span></div>'
-          : '';
+        // CTA removed from hover card — card follows cursor so button can never be clicked.
+        // Desktop click handler below handles navigation. Card is pure preview only.
+        var clickHint = item.url
+          ? '<div class="pi-cta" style="cursor:default">Click to open &#8599;</div>'
+          : '<div class="pi-cta" style="cursor:default">Click to expand &#8595;</div>';
 
         piCard.innerHTML = [
           '<div class="pi-card-art">' + renderArtwork(item.tint) + '</div>',
@@ -402,7 +410,7 @@ function initPortfolioHoverCard() {
             '<h4>' + item.project + '</h4>',
             '<p>' + item.blurb + '</p>',
             '<div class="pi-scope">' + scopePills + '</div>',
-            ctaHtml,
+            clickHint,
           '</div>',
         ].join('');
 
@@ -414,6 +422,18 @@ function initPortfolioHoverCard() {
         if (parentList) parentList.classList.remove('has-hover');
         li.classList.remove('is-hover');
         piCard.classList.remove('on');
+      });
+
+      // Desktop click: navigate to project URL, or expand inline panel for concept work
+      li.addEventListener('click', function() {
+        if (item.url) {
+          window.open(item.url, '_blank', 'noopener');
+        } else {
+          // No live URL — expand inline panel to show project details
+          var isExpanded = li.classList.contains('is-expanded');
+          allItems.forEach(function(x) { x.classList.remove('is-expanded'); });
+          if (!isExpanded) li.classList.add('is-expanded');
+        }
       });
 
     } else {
