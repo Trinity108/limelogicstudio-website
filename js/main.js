@@ -74,64 +74,61 @@ var PORTFOLIO = [
   },
 ];
 
-// <!-- SERVICES_COPY --> — final outcome copy + TTD pricing drops in next pass
+// SERVICES_COPY — confirmed pricing + final outcome copy (updated 2026-05-28)
 var SERVICES = [
   {
     n: '01',
     title: 'Brand Foundation',
-    outcome: 'Walk away with a positioning, identity system, and brand guidelines your whole team can use from day one.',
+    outcome: 'A clear positioning, a confident identity system, and brand guidelines your team can actually use — delivered once, built to last.',
     deliverables: ['Brand positioning + messaging', 'Logo system + visual identity', 'Brand guidelines document'],
     whoFor: 'New businesses and brands that have outgrown their current look.',
     retainer: false,
-    // <!-- PRICING_TTD --> — final number coming next pass
-    pricingTTD: null,
+    pricingTTD: 'From TTD 8,100',
   },
   {
     n: '02',
     title: 'Campaign Content Engine',
-    outcome: 'A steady stream of on-brand content, every month, without the scramble.',
-    deliverables: ['Monthly content calendar', 'Social graphics + short video', 'Captions + hashtag strategy'],
-    whoFor: 'Brands ready to show up consistently on social without burning out.',
+    outcome: 'Consistent, on-brand content every month — planned, produced, and scheduled. You review it. We handle everything else.',
+    deliverables: ['Monthly content calendar (shared 1 week ahead)', 'Social graphics + short-form video', 'Captions, scheduling + monthly analytics report'],
+    whoFor: 'Brands that need to show up consistently on social without managing it themselves.',
     retainer: true,
-    // <!-- PRICING_TTD --> — from TTD 3,400/mo
-    pricingTTD: 'From TTD 3,400 / mo',
+    pricingTTD: 'From TTD 4,050 / mo',
   },
   {
     n: '03',
     title: 'AI Production Sprint',
-    outcome: 'Campaign-ready visuals and video in days, not weeks — built with AI tools most agencies haven\'t touched.',
-    deliverables: ['AI-generated imagery + composites', 'Short-form video edits', 'Brand-matched delivery'],
-    whoFor: 'Launches, campaigns, and moments that can\'t wait.',
+    outcome: 'Campaign-ready visuals and video in days — not weeks. AI-accelerated production without the AI-generic look.',
+    deliverables: ['AI-generated imagery + composites', 'Short-form video edits (9:16 + 1:1)', 'Brand-matched delivery, launch-ready'],
+    whoFor: 'Launches, campaigns, and moments that cannot wait three weeks for a traditional agency.',
     retainer: false,
-    pricingTTD: null,
+    pricingTTD: 'From TTD 2,700',
   },
   {
     n: '04',
     title: 'Web Build',
-    outcome: 'A site that loads fast, reads clearly, and turns visitors into leads — not just a pretty page.',
-    deliverables: ['Conversion-focused design', 'Mobile-first build', 'Cloudflare Pages deploy'],
-    whoFor: 'Businesses that need a website that actually works for their market.',
+    outcome: 'A site that loads fast, reads clearly, and turns visitors into leads. The starting point for everything else we do together.',
+    deliverables: ['Conversion-focused design + copywriting', 'Mobile-first, SEO-ready build', 'Cloudflare Pages deploy + handoff'],
+    whoFor: 'Businesses with a story to tell and a website that does not tell it.',
     retainer: false,
-    pricingTTD: null,
+    pricingTTD: 'From TTD 8,000',
   },
   {
     n: '05',
     title: 'Motion + Launch Pack',
-    outcome: 'Video content that stops the scroll — from concept brief to final cut, delivered launch-ready.',
-    deliverables: ['Brand reels + promos', 'Social video cuts (9:16 + 1:1)', 'Launch campaign assets'],
-    whoFor: 'Product launches, seasonal campaigns, and brand moments that need moving content.',
+    outcome: 'Video content that stops the scroll — from concept to final cut, delivered launch-ready. Built for campaigns, not archives.',
+    deliverables: ['Brand reels + promo videos', 'Social video cuts (9:16 + 1:1)', 'Launch campaign assets, packaged for distribution'],
+    whoFor: 'Product launches, seasonal campaigns, and brand moments that need movement.',
     retainer: false,
-    pricingTTD: null,
+    pricingTTD: 'From TTD 4,000',
   },
   {
     n: '06',
     title: 'Monthly Growth Retainer',
-    outcome: 'Full creative partnership — content, web, campaigns, and strategy in one monthly package. No juggling.',
-    deliverables: ['Content production + scheduling', 'Campaign strategy + creative direction', 'Monthly check-in + performance review'],
-    whoFor: 'Brands that want consistent growth without managing three separate agencies.',
+    outcome: 'Content, campaigns, strategy, and creative direction in one monthly partnership. No briefing three agencies. No dropped balls.',
+    deliverables: ['Content production + scheduling (3 platforms)', 'Campaign strategy + bi-weekly calls', 'Competitor monitoring + monthly performance review'],
+    whoFor: 'Brands ready to treat marketing as infrastructure — not a one-off project.',
     retainer: true,
-    // <!-- PRICING_TTD --> — from TTD 6,800/mo
-    pricingTTD: 'From TTD 6,800 / mo',
+    pricingTTD: 'From TTD 11,500 / mo',
   },
 ];
 
