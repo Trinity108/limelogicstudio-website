@@ -145,11 +145,11 @@ section.s::after{content:'';position:absolute;left:0;top:0;
 
 /* Display headings */
 .h-display{font-family:var(--f-display);font-weight:700;
-  font-size:clamp(40px, 7vw, 96px);line-height:0.95;letter-spacing:-0.02em;
+  font-size:clamp(40px, 7vw, 96px);line-height:0.98;letter-spacing:-0.01em;
   margin:18px 0 0}
 .h-display em{font-style:normal;color:var(--lime)}
 .h-section{font-family:var(--f-display);font-weight:700;
-  font-size:clamp(32px, 5vw, 64px);line-height:1;letter-spacing:-0.02em;
+  font-size:clamp(32px, 5vw, 64px);line-height:1.04;letter-spacing:-0.01em;
   margin:14px 0 0}
 .lede{max-width:60ch;color:#cfcfcf;font-size:clamp(15px,1.4vw,18px);
   line-height:1.55;margin-top:18px}
@@ -179,7 +179,7 @@ section.s:first-of-type{border-top:0}
   box-shadow:0 0 0 4px rgba(168,255,62,0.2);
   animation:hsp-pulse 1.8s ease-in-out infinite}
 .hero h1{font-family:var(--f-display);font-weight:700;
-  font-size:clamp(48px,9vw,140px);line-height:0.88;letter-spacing:-0.03em;
+  font-size:clamp(48px,9vw,140px);line-height:0.92;letter-spacing:-0.01em;
   margin:0;max-width:14ch;
   text-shadow:0 2px 16px rgba(0,0,0,0.85), 0 4px 40px rgba(0,0,0,0.5)}
 .hero h1 em{font-style:normal;color:var(--lime)}
@@ -259,7 +259,7 @@ section.s:first-of-type{border-top:0}
 .mobile-menu li a{display:flex;align-items:baseline;gap:18px;
   padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);
   font-family:var(--f-display);font-weight:700;
-  font-size:clamp(36px,9vw,56px);line-height:1;letter-spacing:-0.02em;
+  font-size:clamp(36px,9vw,56px);line-height:1;letter-spacing:-0.01em;
   color:var(--text)}
 .mobile-menu li a:hover{color:var(--lime)}
 .mobile-menu .mm-num{font-family:var(--f-mono);font-size:11px;
