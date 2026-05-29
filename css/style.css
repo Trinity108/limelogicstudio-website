@@ -34,6 +34,13 @@ html,body{margin:0;padding:0;background:#0A0A0A;color:var(--text);
 body{overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 
+/* Accessibility: skip link + visible keyboard focus */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--lime);color:#0A0A0A;
+  padding:10px 16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.skip-link:focus{left:0}
+.port-index li:focus-visible,.cf-chip:focus-visible,.skip-link:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+#work:focus{outline:none}
+
 /* ─────────────────────────────────────────────────────────────
    SCROLL-DRIVEN HERO VIDEO STAGE
    Fixed to viewport, sits behind all content. The vignette

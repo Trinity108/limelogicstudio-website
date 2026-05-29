@@ -321,7 +321,7 @@ function renderPortfolio() {
         ? '<a class="pi-cta" href="' + item.url + '" target="_blank" rel="noopener">View project <span>&#8594;</span></a>'
         : '';
 
-      html += '<li data-id="' + item.id + '">';
+      html += '<li data-id="' + item.id + '" role="button" tabindex="0" aria-expanded="false" aria-label="' + item.client + ' — ' + item.project + '. Open details.">';
       html += '<span class="num">' + String(i + 1).padStart(2, '0') + '</span>';
       html += '<span class="name">' + dot + item.client + '</span>';
       html += '<span class="scope-x">' + scopeText + '</span>';
@@ -398,7 +398,7 @@ function initPortfolioHoverCard() {
         var scopePills = item.scope.map(function(s) { return '<span>' + s + '</span>'; }).join('');
         // Hover card is pure preview — no interactive elements.
         // Card follows cursor so nothing inside it can reliably be clicked.
-        // Row-level click handler below handles all navigation.
+        // Click/keyboard opens the persistent info panel below the row.
         piCard.innerHTML = [
           '<div class="pi-card-art">' + renderArtwork(item.tint) + '</div>',
           '<div class="pi-card-body">',
@@ -421,27 +421,35 @@ function initPortfolioHoverCard() {
         li.classList.remove('is-hover');
         piCard.classList.remove('on');
       });
-
-      // Desktop click: navigate to project URL, or expand inline panel for concept work
-      li.addEventListener('click', function() {
-        if (item.url) {
-          window.open(item.url, '_blank', 'noopener');
-        } else {
-          // No live URL — expand inline panel to show project details
-          var isExpanded = li.classList.contains('is-expanded');
-          allItems.forEach(function(x) { x.classList.remove('is-expanded'); });
-          if (!isExpanded) li.classList.add('is-expanded');
-        }
-      });
-
-    } else {
-      // Touch: tap to expand inline panel
-      li.addEventListener('click', function() {
-        var isExpanded = li.classList.contains('is-expanded');
-        allItems.forEach(function(x) { x.classList.remove('is-expanded'); });
-        if (!isExpanded) li.classList.add('is-expanded');
-      });
     }
+
+    // Info-first interaction (all devices): click / Enter / Space opens the
+    // detail panel. The panel carries the external "View project" link when a
+    // live URL exists — we NEVER auto-navigate off-site on the row click.
+    function togglePanel() {
+      var wasOpen = li.classList.contains('is-expanded');
+      allItems.forEach(function(x) {
+        x.classList.remove('is-expanded');
+        x.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        li.classList.add('is-expanded');
+        li.setAttribute('aria-expanded', 'true');
+      }
+      if (!isTouch && piCard) piCard.classList.remove('on'); // drop hover preview once panel is open
+    }
+
+    li.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return; // let the "View project" link do its job
+      togglePanel();
+    });
+
+    li.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        togglePanel();
+      }
+    });
   });
 }
 
@@ -514,6 +522,7 @@ function renderTestimonials() {
 function initHeroParallax() {
   var headline = document.getElementById('heroHeadline');
   if (!headline) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('scroll', function() {
     headline.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
   }, { passive: true });
@@ -565,8 +574,10 @@ function initContactForm() {
 
   var chips = form.querySelectorAll('.cf-chip');
   chips.forEach(function(chip) {
+    chip.setAttribute('aria-pressed', 'false');
     chip.addEventListener('click', function() {
-      chip.classList.toggle('on');
+      var on = chip.classList.toggle('on');
+      chip.setAttribute('aria-pressed', String(on));
       var selected = [];
       chips.forEach(function(c) {
         if (c.classList.contains('on')) selected.push(c.dataset.value);
