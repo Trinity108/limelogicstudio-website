@@ -160,7 +160,7 @@ function renderArtwork(tint) {
       '<div style="position:absolute;left:50%;bottom:32%;width:6px;height:6px;border-radius:50%;background:' + s.accent + ';transform:translate(-50%,50%)"></div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;padding:8% 8% 12%;flex-direction:column">',
         '<div style="width:100%;display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(245,245,235,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:auto"><span>EST &middot; 2018</span><span>SUMMIT / CAMPAIGN</span></div>',
-        '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(40px,6vw,84px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + ';text-align:left;width:100%">SUMMIT</div>',
+        '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(40px,6vw,84px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + ';text-align:left;width:100%">SUMMIT</div>',
         '<div style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(245,245,235,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;align-self:flex-start">CLEAN BEAUTY &middot; TT</div>',
       '</div>',
     ].join('');
@@ -172,7 +172,7 @@ function renderArtwork(tint) {
       '<div style="position:absolute;top:8%;right:8%;font-family:JetBrains Mono,monospace;font-size:9px;color:rgba(224,58,58,0.5);letter-spacing:0.14em;text-transform:uppercase">LOYALTY &middot; INTEGRITY &middot; COURAGE</div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:8%">',
         '<div>',
-          '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(36px,5.8vw,80px);line-height:0.88;letter-spacing:-0.03em;color:' + s.typeColor + '">CODE<br>RED</div>',
+          '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(36px,5.8vw,80px);line-height:0.88;letter-spacing:-0.03em;color:' + s.typeColor + '">CODE<br>RED</div>',
           '<div style="margin-top:14px;height:3px;width:48px;background:' + s.accent + '"></div>',
         '</div>',
       '</div>',
@@ -195,7 +195,7 @@ function renderArtwork(tint) {
       '<div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:8% 8% 14%">',
         '<div>',
           '<div style="font-family:JetBrains Mono,monospace;font-size:9px;color:rgba(201,150,58,0.6);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">SOUL QUEEN &middot; CARIBBEAN</div>',
-          '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(40px,6vw,88px);line-height:0.88;letter-spacing:-0.03em;color:' + s.typeColor + '">MAVIS</div>',
+          '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(40px,6vw,88px);line-height:0.88;letter-spacing:-0.03em;color:' + s.typeColor + '">MAVIS</div>',
         '</div>',
       '</div>',
     ].join('');
@@ -211,7 +211,7 @@ function renderArtwork(tint) {
     treatment = [
       confetti,
       '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden">',
-        '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(60px,9.5vw,130px);line-height:0.85;letter-spacing:-0.04em;color:' + s.typeColor + ';text-align:center;transform:rotate(-5deg);white-space:nowrap;text-shadow:0 0 40px rgba(255,60,172,0.4)">MAS’</div>',
+        '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(60px,9.5vw,130px);line-height:0.85;letter-spacing:-0.04em;color:' + s.typeColor + ';text-align:center;transform:rotate(-5deg);white-space:nowrap;text-shadow:0 0 40px rgba(255,60,172,0.4)">MAS’</div>',
       '</div>',
       '<div style="position:absolute;left:8%;bottom:8%;right:8%;display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;font-size:9px;color:rgba(255,60,172,0.6);letter-spacing:0.1em;text-transform:uppercase">',
         '<span>CARNIVAL &middot; TT</span><span>AI APP</span>',
@@ -222,10 +222,10 @@ function renderArtwork(tint) {
     // Pitch grid + jersey number badge + type
     treatment = [
       '<div style="position:absolute;inset:0;background-image:linear-gradient(0deg,transparent 0 calc(100% - 1px),rgba(0,200,81,0.07) calc(100% - 1px)),linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(0,200,81,0.07) calc(100% - 1px));background-size:32px 32px"></div>',
-      '<div style="position:absolute;top:8%;right:8%;font-family:Syne,sans-serif;font-weight:800;font-size:clamp(56px,8vw,96px);line-height:1;color:rgba(0,200,81,0.12);letter-spacing:-0.04em">10</div>',
+      '<div style="position:absolute;top:8%;right:8%;font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(56px,8vw,96px);line-height:1;color:rgba(0,200,81,0.12);letter-spacing:-0.04em">10</div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:8%">',
         '<div>',
-          '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(30px,4.8vw,64px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + '">THE<br>KIT</div>',
+          '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(30px,4.8vw,64px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + '">THE<br>KIT</div>',
           '<div style="margin-top:12px;height:3px;width:40px;background:' + s.accent + '"></div>',
         '</div>',
       '</div>',
@@ -236,7 +236,7 @@ function renderArtwork(tint) {
     treatment = [
       '<div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent 0 36px,rgba(232,200,150,0.04) 36px 37px)"></div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:8%">',
-        '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,56px);line-height:0.95;letter-spacing:-0.02em;color:' + s.typeColor + ';text-align:center">CORAL<br>REEF</div>',
+        '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(28px,4.4vw,56px);line-height:0.95;letter-spacing:-0.02em;color:' + s.typeColor + ';text-align:center">CORAL<br>REEF</div>',
         '<div style="margin-top:16px;padding:4px 12px;border:1px solid ' + s.accent + ';font-family:JetBrains Mono,monospace;font-size:9px;color:' + s.accent + ';letter-spacing:0.16em;text-transform:uppercase">AGED &middot; 12YR</div>',
       '</div>',
     ].join('');
@@ -245,7 +245,7 @@ function renderArtwork(tint) {
     treatment = [
       '<div style="position:absolute;inset:0;background-image:linear-gradient(0deg,transparent 0 calc(100% - 1px),rgba(245,245,245,0.04) calc(100% - 1px)),linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(245,245,245,0.04) calc(100% - 1px));background-size:40px 40px"></div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:4%">',
-        '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(56px,8vw,120px);line-height:0.9;letter-spacing:-0.04em;color:' + s.typeColor + ';text-align:center;position:relative">',
+        '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(56px,8vw,120px);line-height:0.9;letter-spacing:-0.04em;color:' + s.typeColor + ';text-align:center;position:relative">',
           'ATLAS',
           '<div style="position:absolute;left:0;right:0;top:50%;height:1px;background:' + s.typeColor + ';opacity:0.4"></div>',
         '</div>',
@@ -261,7 +261,7 @@ function renderArtwork(tint) {
     treatment = [
       waves,
       '<div style="position:absolute;left:70%;top:50%;width:16px;height:16px;border-radius:50%;background:#0A0A0A;transform:translate(-50%,-50%)"></div>',
-      '<div style="position:absolute;left:8%;top:50%;transform:translateY(-50%);font-family:Syne,sans-serif;font-weight:800;font-size:clamp(36px,5.4vw,72px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + '">',
+      '<div style="position:absolute;left:8%;top:50%;transform:translateY(-50%);font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,72px);line-height:0.9;letter-spacing:-0.03em;color:' + s.typeColor + '">',
         'PULSE<br><span style="font-size:0.4em;font-family:JetBrains Mono,monospace;letter-spacing:0.1em">96.1 FM</span>',
       '</div>',
     ].join('');
@@ -271,7 +271,7 @@ function renderArtwork(tint) {
       '<div style="position:absolute;inset:0;background-image:linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(125,168,224,0.06) calc(100% - 1px));background-size:24px 24px"></div>',
       '<div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:8%;flex-direction:column;justify-content:space-between">',
         '<div style="width:100%;display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(125,168,224,0.5);letter-spacing:0.08em;text-transform:uppercase"><span>FDIC &middot; 0001</span><span>EST. 2026</span></div>',
-        '<div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(28px,4vw,52px);line-height:0.9;letter-spacing:-0.02em;color:' + s.typeColor + ';text-align:left;width:100%">NORTH<br>WIND</div>',
+        '<div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(28px,4vw,52px);line-height:0.9;letter-spacing:-0.02em;color:' + s.typeColor + ';text-align:left;width:100%">NORTH<br>WIND</div>',
       '</div>',
     ].join('');
   }
