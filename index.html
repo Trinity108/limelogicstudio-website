@@ -41,9 +41,11 @@
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/style.css" />
-<!-- ANALYTICS: Uncomment to activate privacy-friendly analytics (Plausible / Cloudflare Web Analytics)
-<script defer data-domain="limelogicstudio.com" src="https://plausible.io/js/script.js"></script>
--->
+<!-- ANALYTICS — Plausible (privacy-first, cookieless, no banner).
+     Combined script auto-tracks outbound link clicks (Discovery Call / WhatsApp)
+     and supports custom events. The init stub queues events fired before load. -->
+<script defer data-domain="limelogicstudio.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 <style>
   :root {
     --lime-intensity: 0.60;
@@ -63,7 +65,7 @@
 <div class="grain on"></div>
 
 <div class="hero-stage" id="heroStage">
-  <video id="heroVideo" muted playsinline preload="auto" poster=""></video>
+  <video id="heroVideo" muted playsinline preload="auto" poster="assets/images/limedroid-hero.jpg"></video>
   <img class="hero-image" id="heroImage"
        src="assets/images/limedroid-hero.jpg"
        alt="LimeLogic mascot — half-lime, half-circuit board" />
@@ -429,46 +431,35 @@
       heroImage.addEventListener('load', function(){ stage.classList.add('has-video'); }, { once: true });
     }
   } else {
+    // Image-first. The static hero paints instantly (CSS); the scrubbable
+    // video crossfades in over it once ready. The scrub needs the WHOLE file
+    // in a seekable in-memory blob — native range streaming is not reliably
+    // seekable for this clip and breaks the scrub (verified). So we still build
+    // a blob, but: (1) one allocation via res.blob() instead of the old
+    // chunked reader that held a chunks[] array AND a Blob (~2x memory), and
+    // (2) deferred to idle so the download never blocks first paint.
     video.addEventListener('loadedmetadata', function(){
       duration = video.duration || 0;
-      var seekableOK = video.seekable.length > 0 && video.seekable.end(0) >= duration - 0.5;
-      videoReady = duration > 0 && seekableOK;
-      if (videoReady) stage.classList.add('has-video');
+    });
+    video.addEventListener('loadeddata', function(){
+      videoReady = duration > 0;
+      if (videoReady) { stage.classList.add('has-video'); schedule(); }
     });
     video.addEventListener('error', function(){
+      // Leave the static hero image showing as the graceful fallback.
       stage.classList.add('no-video');
-      if (label) label.textContent = 'VIDEO FAILED TO LOAD';
     });
-    fetch(VIDEO_URL)
-      .then(function(res){
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        var total = Number(res.headers.get('Content-Length')) || 0;
-        if (!total || !res.body) return res.blob();
-        var reader = res.body.getReader();
-        var chunks = [];
-        var received = 0;
-        function pump(){
-          return reader.read().then(function(d){
-            if (d.done) return new Blob(chunks, { type: 'video/mp4' });
-            chunks.push(d.value);
-            received += d.value.length;
-            var pct = Math.round((received / total) * 100);
-            if (label) label.textContent = 'LOADING FILM · ' + pct + '%';
-            return pump();
-          });
-        }
-        return pump();
-      })
-      .then(function(blob){
-        var url = URL.createObjectURL(blob);
-        video.src = url;
-        video.load();
-      })
-      .catch(function(e){
-        stage.classList.add('no-video');
-        if (label) label.textContent = 'VIDEO LOAD ERROR · ' + e.message;
-        video.src = VIDEO_URL;
-      });
+    var loadFilm = function(){
+      fetch(VIDEO_URL)
+        .then(function(res){ if (!res.ok) throw new Error('HTTP ' + res.status); return res.blob(); })
+        .then(function(blob){ video.src = URL.createObjectURL(blob); video.load(); })
+        .catch(function(){ stage.classList.add('no-video'); });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadFilm, { timeout: 1500 });
+    } else {
+      setTimeout(loadFilm, 200);
+    }
   }
 
   function progress(){

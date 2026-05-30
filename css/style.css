@@ -46,37 +46,42 @@ a{color:inherit;text-decoration:none}
    Fixed to viewport, sits behind all content. The vignette
    protects the character zone in the center.
    ───────────────────────────────────────────────────────────── */
-.hero-stage{position:fixed;inset:0;z-index:0;background:#000;
+.hero-stage{position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, #2A3A1F 0%, #1A1F12 50%, #0A0A0A 100%),
+    #0A0A0A;
   overflow:hidden;pointer-events:none}
 .hero-stage video{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;display:block;opacity:0;transition:opacity .6s ease}
+  object-fit:cover;display:block;opacity:0;z-index:1;transition:opacity .6s ease}
 .hero-stage.has-video video{opacity:1}
-/* Static hero image — shown on mobile / fallback mode.
-   Hidden on desktop where the video drives the experience. */
+/* Static hero image — the instant first paint in EVERY mode. The video
+   crossfades in on top of it (higher z-index) once the file is buffered and
+   scrubbable; on mobile/fallback the image stays as the hero. */
 .hero-stage .hero-image{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:50% 55%;display:none;
+  object-fit:cover;object-position:50% 55%;display:block;opacity:1;z-index:0;
   will-change:transform;transform-origin:center 60%}
-.hero-stage.fallback-mode .hero-image{display:block}
 .hero-stage.fallback-mode video{display:none}
 /* On mobile portrait the image is cropped tight — push the focal point */
 @media (max-width:640px){
   .hero-stage .hero-image{object-position:48% 60%}
 }
-.hero-vignette{position:absolute;inset:0;pointer-events:none;
+.hero-vignette{position:absolute;inset:0;pointer-events:none;z-index:2;
   background:
     radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, transparent 45%, rgba(10,10,10,0.45) 75%, rgba(10,10,10,0.92) 100%),
     linear-gradient(180deg, rgba(10,10,10,0.55) 0%, transparent 25%, transparent 70%, rgba(10,10,10,0.9) 100%);
   opacity:var(--vignette-opacity,1);transition:opacity .3s}
-.hero-safe-zone{position:absolute;left:50%;top:50%;
+.hero-safe-zone{position:absolute;left:50%;top:50%;z-index:3;
   width:min(420px,40vw);height:min(420px,40vw);
   transform:translate(-50%,-50%);border-radius:50%;
   border:1px dashed rgba(168,255,62,0.5);
   display:none;pointer-events:none}
 .hero-stage[data-debug="1"] .hero-safe-zone{display:block}
 
-/* Placeholder when video file isn't uploaded yet */
+/* Loading placeholder — retired in favour of image-first hero. Kept defined
+   for the no-video edge case but hidden by default (the static image is now
+   the loading/fallback visual). */
 .hero-stage-placeholder{position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
+  display:none;align-items:center;justify-content:center;
   flex-direction:column;gap:24px;
   background:
     radial-gradient(ellipse 60% 50% at 50% 50%, #2A3A1F 0%, #1A1F12 50%, #0A0A0A 100%),
