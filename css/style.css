@@ -861,7 +861,7 @@ a.pi-cta{text-decoration:none}
   padding-top:clamp(80px,10vw,140px);overflow:hidden;
   border-top:1px solid rgba(255,255,255,0.08)}
 .footer .wordmark{font-family:var(--f-display);font-weight:700;
-  font-size:clamp(70px,19vw,260px);line-height:0.84;letter-spacing:-0.04em;
+  font-size:clamp(70px,19vw,260px);line-height:0.84;letter-spacing:-0.01em;
   margin:0;padding:0 var(--pad-x);max-width:100%;color:var(--text);
   text-shadow:0 2px 40px rgba(0,0,0,0.5)}
 .footer .wordmark em{font-style:normal;color:var(--lime)}
