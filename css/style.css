@@ -587,12 +587,24 @@ section.s:first-of-type{border-top:0}
 }
 
 /* Inline expansion panel — shown on tap (touch devices only) */
-.port-index .pi-inline{display:none;grid-column:1/-1;
-  margin-top:18px;padding:18px;border-radius:6px;
+.port-index .pi-inline{grid-column:1/-1;
+  margin-top:0;padding:0 18px;border-radius:6px;
   background:rgba(15,15,15,0.7);
-  border:1px solid rgba(168,255,62,0.25);
-  flex-direction:row;gap:18px}
-.port-index li.is-expanded .pi-inline{display:flex}
+  border:1px solid transparent;
+  flex-direction:row;gap:18px;
+  display:flex;
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .35s cubic-bezier(0.2,0.8,0.2,1),
+             opacity .25s ease,
+             margin-top .35s ease,
+             padding .35s ease,
+             border-color .25s ease;
+  pointer-events:none}
+.port-index li.is-expanded .pi-inline{
+  max-height:600px;opacity:1;
+  margin-top:18px;padding:18px;
+  border-color:rgba(168,255,62,0.25);
+  pointer-events:auto}
 .port-index li.is-expanded{padding-bottom:22px}
 .port-index .pi-inline-art{flex-shrink:0;width:42%;max-width:200px;
   aspect-ratio:4/3;border-radius:4px;overflow:hidden;position:relative}
@@ -713,6 +725,8 @@ a.pi-cta{text-decoration:none}
 .s-services .svc-numbered .item:hover{background:rgba(15,15,15,0.55);
   border-color:rgba(168,255,62,0.3)}
 .svc-numbered .item:hover{padding-left:38px}
+.svc-numbered .item:active{background:rgba(168,255,62,0.06);border-color:rgba(168,255,62,0.2)}
+.s-services .svc-numbered .item:active{background:rgba(168,255,62,0.08);border-color:rgba(168,255,62,0.3)}
 .svc-numbered .item .n{font-family:var(--f-display);font-weight:700;
   font-size:clamp(40px,5vw,72px);line-height:0.9;letter-spacing:-0.02em;
   color:var(--lime);min-width:1.6em;
@@ -1345,9 +1359,8 @@ section#process{background:rgba(6,6,6,0.72)}
 .reveal{opacity:0;transform:translateY(40px)}
 /* Animation fires on .visible — fill:both holds end state + hides during delay */
 .reveal.visible{
-  animation:drift-up 0.70s cubic-bezier(0.2,0.8,0.2,1) var(--reveal-delay,0ms) both}
-/* Cards + row elements get a slightly snappier duration */
-.reveal.reveal-card.visible{animation-duration:0.65s}
+  animation:drift-up 0.42s cubic-bezier(0.2,0.8,0.2,1) var(--reveal-delay,0ms) both}
+.reveal.reveal-card.visible{animation-duration:0.42s}
 /* Accessibility: cancel all animation for reduced-motion preference */
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.visible{
