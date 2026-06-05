@@ -4,6 +4,14 @@
    Lime intensity is driven by --lime-intensity (0..1) on :root.
 */
 
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../assets/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --bg: #1A1A1A;
   --bg-deep: #0F0F0F;
@@ -58,9 +66,10 @@ a{color:inherit;text-decoration:none}
    crossfades in on top of it (higher z-index) once the file is buffered and
    scrubbable; on mobile/fallback the image stays as the hero. */
 .hero-stage .hero-image{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:50% 55%;display:block;opacity:1;z-index:0;
-  will-change:transform;transform-origin:center 60%}
+  object-fit:cover;object-position:50% 55%;display:block;opacity:0;z-index:0;
+  will-change:transform;transform-origin:center 60%;transition:opacity .6s ease}
 .hero-stage.fallback-mode video{display:none}
+.hero-stage.fallback-mode.has-video .hero-image{opacity:1}
 /* On mobile portrait the image is cropped tight — push the focal point */
 @media (max-width:640px){
   .hero-stage .hero-image{object-position:48% 60%}

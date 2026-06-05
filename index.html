@@ -35,10 +35,9 @@
   "areaServed": ["Trinidad and Tobago", "Caribbean"]
 }
 </script>
+<link rel="preload" href="assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/style.css" />
 <!-- ANALYTICS — Plausible (privacy-first, cookieless, no banner).
@@ -67,7 +66,6 @@
 <div class="hero-stage" id="heroStage">
   <video id="heroVideo" muted playsinline preload="auto" poster="assets/images/limedroid-hero.jpg"></video>
   <img class="hero-image" id="heroImage"
-       src="assets/images/limedroid-hero.jpg"
        alt="LimeLogic mascot — half-lime, half-circuit board" />
   <div class="hero-stage-placeholder" id="heroStagePlaceholder">
     <div class="hsp-character"></div>
@@ -425,10 +423,13 @@
   if (useFallback) {
     stage.classList.add('fallback-mode');
     video.removeAttribute('src');
-    if (heroImage && heroImage.complete && heroImage.naturalWidth > 0) {
-      stage.classList.add('has-video');
-    } else if (heroImage) {
-      heroImage.addEventListener('load', function(){ stage.classList.add('has-video'); }, { once: true });
+    if (heroImage) {
+      heroImage.src = 'assets/images/limedroid-hero.jpg';
+      if (heroImage.complete && heroImage.naturalWidth > 0) {
+        stage.classList.add('has-video');
+      } else {
+        heroImage.addEventListener('load', function(){ stage.classList.add('has-video'); }, { once: true });
+      }
     }
   } else {
     // Image-first. The static hero paints instantly (CSS); the scrubbable

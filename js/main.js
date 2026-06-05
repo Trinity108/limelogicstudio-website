@@ -323,7 +323,7 @@ function renderPortfolio() {
 
       html += '<li data-id="' + item.id + '" role="button" tabindex="0" aria-expanded="false" aria-label="' + item.client + ' — ' + item.project + '. Open details.">';
       html += '<span class="num">' + String(i + 1).padStart(2, '0') + '</span>';
-      html += '<span class="name">' + dot + item.client + '</span>';
+      html += '<span class="name">' + dot + (item.kind === 'product' ? item.project : item.client) + '</span>';
       html += '<span class="scope-x">' + scopeText + '</span>';
       html += '<span class="arrow">&#8599;</span>';
 
