@@ -523,6 +523,7 @@ function initHeroParallax() {
   var headline = document.getElementById('heroHeadline');
   if (!headline) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 880) return;
   window.addEventListener('scroll', function() {
     headline.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
   }, { passive: true });
@@ -620,10 +621,11 @@ function initScrollReveal() {
 
   // ── 1. Selector maps ──────────────────────────────────────────────────────
   // Section header triplets: eyebrow → heading → right column
+  var isMobile = window.innerWidth <= 640;
   var HEADER_SELECTORS = [
-    { sel: '.sec-head .eyebrow',   delay: 0   },
-    { sel: '.sec-head .h-section', delay: 80  },
-    { sel: '.sec-head .right',     delay: 160 },
+    { sel: '.sec-head .eyebrow',   delay: 0                     },
+    { sel: '.sec-head .h-section', delay: isMobile ? 50 : 80   },
+    { sel: '.sec-head .right',     delay: isMobile ? 100 : 160  },
   ];
 
   // Contact lede: h3 → paragraph
@@ -635,10 +637,10 @@ function initScrollReveal() {
   // Stagger groups: each element gets (index × delay)ms
   // card:true adds .reveal-card for the shorter 0.55s duration
   var STAGGER_GROUPS = [
-    { selector: '#portIndex li', delay: 60, card: false },
-    { selector: '#servicesNumbered .item',   delay: 60, card: true  },
-    { selector: '.proof-card',               delay: 80, card: true  },
-    { selector: '.process-step',             delay: 80, card: true  },
+    { selector: '#portIndex li',             delay: 40, card: false },
+    { selector: '#servicesNumbered .item',   delay: 40, card: true  },
+    { selector: '.proof-card',               delay: 40, card: true  },
+    { selector: '.process-step',             delay: 40, card: true  },
   ];
 
   // ── 2. Auto-tag elements ──────────────────────────────────────────────────
@@ -662,7 +664,7 @@ function initScrollReveal() {
     document.querySelectorAll(group.selector).forEach(function(el, i) {
       el.classList.add('reveal');
       if (group.card) el.classList.add('reveal-card');
-      el.style.setProperty('--reveal-delay', (i * group.delay) + 'ms');
+      el.style.setProperty('--reveal-delay', Math.min(i * group.delay, 160) + 'ms');
     });
   });
 
@@ -684,7 +686,7 @@ function initScrollReveal() {
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(function(el) {
     obs.observe(el);
