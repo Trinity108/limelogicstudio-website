@@ -335,7 +335,7 @@ function renderPortfolio() {
       html += '<span class="' + tag.cls + '">' + tag.text + '</span>';
       html += '<span>' + item.year + '</span>';
       html += '</div>';
-      html += '<h4>' + item.project + '</h4>';
+      html += '<h3>' + item.project + '</h3>';
       html += '<p>' + item.blurb + '</p>';
       html += '<div class="pi-scope">' + scopePills + '</div>';
       html += ctaHtml;
@@ -362,21 +362,24 @@ function initPortfolioHoverCard() {
   var isTouch = window.matchMedia('(hover: none)').matches;
   var hoveredItem = null;
   var mouseX = 0, mouseY = 0;
+  var rafCardPending = false;
 
   // Cursor follow — scoped to the whole port-index wrapper
   portIndex.addEventListener('mousemove', function(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    if (!hoveredItem) return;
-
-    var cardW = 380, cardH = 360, margin = 24;
-    var flipX = mouseX + cardW + margin > window.innerWidth;
-    var flipY = mouseY + cardH + margin > window.innerHeight;
-
-    piCard.style.left = mouseX + 'px';
-    piCard.style.top = mouseY + 'px';
-    piCard.classList.toggle('flip-x', flipX);
-    piCard.classList.toggle('flip-y', flipY);
+    if (!hoveredItem || rafCardPending) return;
+    rafCardPending = true;
+    requestAnimationFrame(function() {
+      var cardW = 380, cardH = 360, margin = 24;
+      var flipX = mouseX + cardW + margin > window.innerWidth;
+      var flipY = mouseY + cardH + margin > window.innerHeight;
+      piCard.style.left = mouseX + 'px';
+      piCard.style.top = mouseY + 'px';
+      piCard.classList.toggle('flip-x', flipX);
+      piCard.classList.toggle('flip-y', flipY);
+      rafCardPending = false;
+    });
   });
 
   // Wire all items across all 3 lists
@@ -406,7 +409,7 @@ function initPortfolioHoverCard() {
               '<span class="' + tag.cls + '">' + tag.text + '</span>',
               '<span>' + item.year + '</span>',
             '</div>',
-            '<h4>' + item.project + '</h4>',
+            '<h3>' + item.project + '</h3>',
             '<p>' + item.blurb + '</p>',
             '<div class="pi-scope">' + scopePills + '</div>',
           '</div>',
@@ -500,17 +503,17 @@ function renderTestimonials() {
     '<div class="proof-cards">',
       '<div class="proof-card">',
         '<div class="pc-num">01</div>',
-        '<h4>Caribbean businesses need a real creative partner, not another vendor.</h4>',
+        '<h3>Caribbean businesses need a real creative partner, not another vendor.</h3>',
         '<p>Every client we take on is a candidate for a long-term growth retainer. We build the kind of work that keeps showing up — month after month.</p>',
       '</div>',
       '<div class="proof-card">',
         '<div class="pc-num">02</div>',
-        '<h4>AI production means more for your budget. We pass the efficiency to you.</h4>',
+        '<h3>AI production means more for your budget. We pass the efficiency to you.</h3>',
         '<p>Work that used to take weeks now takes days. We\'re not charging legacy rates for AI-accelerated output — and that\'s a real difference for Caribbean SMBs.</p>',
       '</div>',
       '<div class="proof-card proof-card--featured">',
         '<div class="pc-num">&#8599;</div>',
-        '<h4>Real results are in progress. See the work while they land.</h4>',
+        '<h3>Real results are in progress. See the work while they land.</h3>',
         '<a href="#work" class="pc-link">View selected work &#8594;</a>',
       '</div>',
     '</div>',
@@ -524,8 +527,14 @@ function initHeroParallax() {
   if (!headline) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 880) return;
+  var rafPending = false;
   window.addEventListener('scroll', function() {
-    headline.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(function() {
+      headline.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+      rafPending = false;
+    });
   }, { passive: true });
 }
 
@@ -563,6 +572,30 @@ function initNav() {
       document.body.style.overflow = '';
     });
   });
+
+  // Esc to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+  });
+
+  // Focus trap inside open mobile menu
+  mobileMenu.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab' || !mobileMenu.classList.contains('open')) return;
+    var focusables = mobileMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 }
 
 // ─── CONTACT FORM ────────────────────────────────────────────────────────────
@@ -570,6 +603,7 @@ function initNav() {
 function initContactForm() {
   var form = document.getElementById('contactForm');
   var successEl = document.getElementById('cfSuccess');
+  var errorEl = document.getElementById('cfError');
   var servicesHidden = document.getElementById('servicesHidden');
   if (!form) return;
 
@@ -605,12 +639,12 @@ function initContactForm() {
         if (window.plausible) window.plausible('Contact Form: Submit');
       } else {
         if (btn) { btn.disabled = false; btn.innerHTML = 'Send it <span class="arrow">&#8594;</span>'; }
-        alert('Something went wrong — please email us directly at hello@limelogicstudio.com');
+        if (errorEl) { errorEl.textContent = 'Something went wrong — please email us at hello@limelogicstudio.com'; errorEl.style.display = ''; }
       }
     })
     .catch(function() {
       if (btn) { btn.disabled = false; btn.innerHTML = 'Send it <span class="arrow">&#8594;</span>'; }
-      alert('Something went wrong — please email us directly at hello@limelogicstudio.com');
+      if (errorEl) { errorEl.textContent = 'Something went wrong — please email us at hello@limelogicstudio.com'; errorEl.style.display = ''; }
     });
   });
 }

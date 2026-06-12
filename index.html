@@ -19,8 +19,9 @@
 <link rel="canonical" href="https://limelogicstudio.com/" />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#1A1A1A" />
-<link rel="icon" type="image/png" href="assets/images/logo-symbol.png" />
-<link rel="apple-touch-icon" href="assets/images/logo-symbol.png" />
+<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -62,7 +63,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#work">Skip to content</a>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="grain on"></div>
 
@@ -165,7 +166,7 @@
       </div>
       <!-- PORTFOLIO_DATA — real project assets + updated card data drops in next pass -->
       <div class="port-index" id="portIndex">
-        <div id="portfolioSections"></div>
+        <div id="portfolioSections"><noscript><p style="color:var(--muted);padding:24px 0">Please enable JavaScript to view selected work.</p></noscript></div>
         <div class="pi-card" id="piCard"></div>
       </div>
     </div>
@@ -199,7 +200,7 @@
           <div style="margin-top:16px;font-family:var(--f-mono);font-size:11px;color:var(--lime);letter-spacing:.04em">Most of our best clients started with one project &#8212; and never went back to project-by-project.</div>
         </div>
       </div>
-      <div class="svc-numbered" id="servicesNumbered"></div>
+      <div class="svc-numbered" id="servicesNumbered"><noscript><p style="color:var(--muted);padding:24px 0">Please enable JavaScript to view our services.</p></noscript></div>
     </div>
   </section>
 
@@ -264,17 +265,17 @@
       <div class="process-steps">
         <div class="process-step reveal">
           <div class="ps-num">01</div>
-          <h4>Brief</h4>
+          <h3>Brief</h3>
           <p>We dig into your audience, offer, and goals before touching anything creative.</p>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">02</div>
-          <h4>Build</h4>
+          <h3>Build</h3>
           <p>AI-accelerated production, Caribbean-rooted craft. We move fast and don&#8217;t cut corners.</p>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">03</div>
-          <h4>Launch</h4>
+          <h3>Launch</h3>
           <p>Polished, packaged, and handed off ready for social, web, paid, or print.</p>
         </div>
       </div>
@@ -379,6 +380,7 @@
           <div class="privacy">
             By submitting you agree to our <a href="/privacy.html">privacy notice</a>. No spam, ever.
           </div>
+          <p class="cf-error" id="cfError" style="display:none;color:#ff6b6b;font-size:13px;margin:0 0 12px;font-family:var(--f-mono);letter-spacing:.02em"></p>
           <button type="submit">Send it <span class="arrow">&#8594;</span></button>
         </div>
       </form>
@@ -426,6 +428,7 @@
   if (useFallback) {
     stage.classList.add('fallback-mode');
     video.removeAttribute('src');
+    var tag = document.querySelector('.hero .tag'); if (tag) tag.style.display = 'none';
     if (heroImage) {
       heroImage.src = window.innerWidth > 880
         ? 'assets/images/limedroid-hero-1920.webp'
@@ -521,7 +524,8 @@
       <li style="transition-delay:0ms"><a href="#work"><span class="mm-num">01</span><span class="mm-label">Work</span><span class="mm-arrow">&#8594;</span></a></li>
       <li style="transition-delay:60ms"><a href="#services"><span class="mm-num">02</span><span class="mm-label">Services</span><span class="mm-arrow">&#8594;</span></a></li>
       <li style="transition-delay:120ms"><a href="#proof"><span class="mm-num">03</span><span class="mm-label">Proof</span><span class="mm-arrow">&#8594;</span></a></li>
-      <li style="transition-delay:180ms"><a href="#contact"><span class="mm-num">04</span><span class="mm-label">Contact</span><span class="mm-arrow">&#8594;</span></a></li>
+      <li style="transition-delay:180ms"><a href="#process"><span class="mm-num">04</span><span class="mm-label">Process</span><span class="mm-arrow">&#8594;</span></a></li>
+      <li style="transition-delay:240ms"><a href="#contact"><span class="mm-num">05</span><span class="mm-label">Contact</span><span class="mm-arrow">&#8594;</span></a></li>
     </ul>
     <div class="mm-foot">
       <a class="cta" href="https://cal.com/limelogicstudio/discovery-call" target="_blank" rel="noopener" style="background:var(--lime);color:#0A0A0A">Book a Discovery Call &#8594;</a>
