@@ -10,7 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://limelogicstudio.com" />
 <meta property="og:image" content="https://limelogicstudio.com/assets/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://limelogicstudio.com/assets/images/og-image.jpg" />
 <meta name="twitter:title" content="LimeLogic Studio — We Got the Juice." />
 <meta name="twitter:description" content="The brands, websites, and content that grow Caribbean businesses. Strategy to launch." />
 <link rel="canonical" href="https://limelogicstudio.com/" />
@@ -36,9 +39,9 @@
 }
 </script>
 <link rel="preload" href="assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/images/limedroid-hero-1920.webp" as="image" type="image/webp" media="(min-width:881px)">
+<link rel="preload" href="assets/images/limedroid-hero-1280.webp" as="image" type="image/webp" media="(max-width:880px)">
 <link rel="stylesheet" href="css/style.css" />
 <!-- ANALYTICS — Plausible (privacy-first, cookieless, no banner).
      Combined script auto-tracks outbound link clicks (Discovery Call / WhatsApp)
@@ -64,7 +67,7 @@
 <div class="grain on"></div>
 
 <div class="hero-stage" id="heroStage">
-  <video id="heroVideo" muted playsinline preload="auto" poster="assets/images/limedroid-hero.jpg"></video>
+  <video id="heroVideo" muted playsinline preload="auto" poster="assets/images/limedroid-hero-1920.webp"></video>
   <img class="hero-image" id="heroImage"
        alt="LimeLogic mascot — half-lime, half-circuit board" />
   <div class="hero-stage-placeholder" id="heroStagePlaceholder">
@@ -315,21 +318,21 @@
       <form class="contact-form" id="contactForm">
         <div class="cf-row cf-pair">
           <div class="cf-row">
-            <label>Name <span class="req">*</span></label>
-            <input required type="text" name="name" placeholder="Your name" />
+            <label for="cf-name">Name <span class="req">*</span></label>
+            <input required type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" />
           </div>
           <div class="cf-row">
-            <label>Email <span class="req">*</span></label>
-            <input required type="email" name="email" placeholder="you@company.com" />
+            <label for="cf-email">Email <span class="req">*</span></label>
+            <input required type="email" id="cf-email" name="email" placeholder="you@company.com" autocomplete="email" />
           </div>
         </div>
         <div class="cf-row">
-          <label>Company <span class="hint">Optional</span></label>
-          <input type="text" name="company" placeholder="Where you work" />
+          <label for="cf-company">Company <span class="hint">Optional</span></label>
+          <input type="text" id="cf-company" name="company" placeholder="Where you work" autocomplete="organization" />
         </div>
         <div class="cf-row">
-          <label>What are you looking to build? <span class="hint">Select all that apply</span></label>
-          <div class="cf-chips">
+          <label id="cf-services-label">What are you looking to build? <span class="hint">Select all that apply</span></label>
+          <div class="cf-chips" role="group" aria-labelledby="cf-services-label">
             <button type="button" class="cf-chip" data-value="Brand Foundation">Brand Foundation</button>
             <button type="button" class="cf-chip" data-value="Campaign Content">Campaign Content</button>
             <button type="button" class="cf-chip" data-value="AI Production Sprint">AI Sprint</button>
@@ -341,8 +344,8 @@
         </div>
         <div class="cf-row cf-pair">
           <div class="cf-row">
-            <label>Approximate budget</label>
-            <select name="budget" aria-describedby="budgetHint">
+            <label for="cf-budget">Approximate budget</label>
+            <select id="cf-budget" name="budget" aria-describedby="budgetHint">
               <option value="">Select range</option>
               <option>One-off sprint &#8212; Under TT$12,000</option>
               <option>Web or brand build &#8212; TT$12,000 &#8211; TT$30,000</option>
@@ -350,11 +353,11 @@
               <option>Growth retainer &#8212; TT$11,500+ / month</option>
               <option>Not sure yet &#8212; let&#8217;s talk</option>
             </select>
-            <span id="budgetHint" style="font-family:var(--f-mono);font-size:10px;color:rgba(245,245,245,0.6);margin-top:6px;display:block;letter-spacing:.04em">This helps us recommend the right sprint, retainer, or custom build.</span>
+            <span id="budgetHint" style="font-family:var(--f-mono);font-size:12px;color:rgba(245,245,245,0.7);margin-top:6px;display:block;letter-spacing:.04em">This helps us recommend the right sprint, retainer, or custom build.</span>
           </div>
           <div class="cf-row">
-            <label>Timeline</label>
-            <select name="timeline">
+            <label for="cf-timeline">Timeline</label>
+            <select id="cf-timeline" name="timeline">
               <option value="">Select window</option>
               <option>ASAP (within 2 weeks)</option>
               <option>1&#8211;2 months</option>
@@ -365,12 +368,12 @@
           </div>
         </div>
         <div class="cf-row">
-          <label>Phone / WhatsApp <span class="hint">Optional</span></label>
-          <input type="tel" name="phone" placeholder="+1 (868) 000-0000" autocomplete="tel" />
+          <label for="cf-phone">Phone / WhatsApp <span class="hint">Optional</span></label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="+1 (868) 000-0000" autocomplete="tel" />
         </div>
         <div class="cf-row">
-          <label>Tell us what you&#8217;re building <span class="req">*</span></label>
-          <textarea required name="message" placeholder="What are you building, what&#8217;s not working now, and what success would look like for you."></textarea>
+          <label for="cf-message">Tell us what you&#8217;re building <span class="req">*</span></label>
+          <textarea required id="cf-message" name="message" placeholder="What are you building, what&#8217;s not working now, and what success would look like for you."></textarea>
         </div>
         <div class="cf-submit">
           <div class="privacy">
@@ -424,7 +427,9 @@
     stage.classList.add('fallback-mode');
     video.removeAttribute('src');
     if (heroImage) {
-      heroImage.src = 'assets/images/limedroid-hero.jpg';
+      heroImage.src = window.innerWidth > 880
+        ? 'assets/images/limedroid-hero-1920.webp'
+        : 'assets/images/limedroid-hero-1280.webp';
       if (heroImage.complete && heroImage.naturalWidth > 0) {
         stage.classList.add('has-video');
       } else {

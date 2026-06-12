@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found — LimeLogic Studio</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#1A1A1A" />
+<link rel="icon" type="image/png" href="/assets/images/logo-symbol.png" />
+<style>
+  @font-face {
+    font-family: 'Clash Display';
+    src: url('/assets/fonts/ClashDisplay-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+    font-weight: 100 800;
+    font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100vh; }
+  body {
+    background: #0A0A0A;
+    color: #F5F5F5;
+    font-family: 'Clash Display', 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+  }
+  .wrap { max-width: 560px; }
+  .code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #A8FF3E;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: clamp(40px, 9vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+  }
+  h1 em { font-style: normal; color: #A8FF3E; }
+  p {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(245,245,245,0.75);
+    margin: 0 0 32px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #A8FF3E;
+    color: #0A0A0A;
+    border-radius: 999px;
+    padding: 16px 28px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    min-height: 44px;
+  }
+  .btn:focus-visible { outline: 2px solid #A8FF3E; outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="code">404 / Page not found</div>
+    <h1>Nothing juicy <em>here.</em></h1>
+    <p>This page doesn&#8217;t exist &#8212; or it moved. Either way, the good stuff is one click away.</p>
+    <a class="btn" href="/">Back to the Studio &#8594;</a>
+  </main>
+</body>
+</html>

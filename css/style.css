@@ -12,6 +12,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Variable.woff2') format('woff2');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../assets/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --bg: #1A1A1A;
   --bg-deep: #0F0F0F;
@@ -227,12 +243,12 @@ section.s:first-of-type{border-top:0}
 
 /* .hero-meta — inline inside #heroHeadline, scrolls with the parallax group */
 .hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;
-  text-transform:uppercase;color:rgba(245,245,245,0.5);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.07em;
+  text-transform:uppercase;color:rgba(245,245,245,0.65);
   text-shadow:0 1px 8px rgba(0,0,0,0.9)}
-.hero-meta b{color:rgba(245,245,245,0.7);font-weight:500}
+.hero-meta b{color:rgba(245,245,245,0.8);font-weight:500}
 @media (max-width:640px){
-  .hero-meta{font-size:9px;gap:6px 16px;margin-top:16px}
+  .hero-meta{font-size:10px;gap:6px 16px;margin-top:16px}
 }
 .hero .scroll{position:absolute;right:var(--pad-x);bottom:32px;
   font-family:var(--f-mono);font-size:11px;color:rgba(245,245,245,0.7);
@@ -949,12 +965,12 @@ a.pi-cta{text-decoration:none}
     border-bottom:1px solid rgba(255,255,255,0.1)}
   .cf-row.cf-pair > .cf-row:last-child{padding-left:0}
 }
-.cf-row label{font-family:var(--f-mono);font-size:10px;
+.cf-row label{font-family:var(--f-mono);font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(245,245,245,0.55);margin-bottom:8px;display:flex;
+  color:rgba(245,245,245,0.65);margin-bottom:8px;display:flex;
   justify-content:space-between;align-items:baseline}
 .cf-row label .req{color:var(--lime)}
-.cf-row label .hint{color:rgba(245,245,245,0.35);font-size:10px}
+.cf-row label .hint{color:rgba(245,245,245,0.65);font-size:11px}
 .cf-row input,.cf-row textarea,.cf-row select{
   background:transparent;border:0;outline:none;padding:0;
   color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.4;
@@ -976,8 +992,8 @@ a.pi-cta{text-decoration:none}
 
 .cf-submit{display:flex;justify-content:space-between;align-items:center;
   padding-top:24px;margin-top:8px;gap:16px;flex-wrap:wrap}
-.cf-submit .privacy{font-family:var(--f-mono);font-size:11px;
-  color:rgba(245,245,245,0.5);letter-spacing:.04em;text-transform:uppercase;
+.cf-submit .privacy{font-family:var(--f-mono);font-size:12px;
+  color:rgba(245,245,245,0.65);letter-spacing:.04em;text-transform:uppercase;
   max-width:32ch;line-height:1.5}
 .cf-submit .privacy a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
 .cf-submit button{appearance:none;background:var(--lime);color:#0A0A0A;
@@ -1003,7 +1019,7 @@ a.pi-cta{text-decoration:none}
 .footer .legal{padding:24px var(--pad-x);
   border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  font-family:var(--f-mono);font-size:11px;color:rgba(245,245,245,0.5);
+  font-family:var(--f-mono);font-size:12px;color:rgba(245,245,245,0.65);
   letter-spacing:.04em;text-transform:uppercase;
   background:rgba(10,10,10,0.6);backdrop-filter:blur(10px)}
 
@@ -1080,7 +1096,7 @@ a.pi-cta{text-decoration:none}
   .marquee .track span{gap:28px}
 
   /* Footer legal stacks */
-  .footer .legal{flex-direction:column;gap:6px;font-size:10px}
+  .footer .legal{flex-direction:column;gap:6px;font-size:11px}
 }
 
 /* Tighter still for very small phones */
@@ -1177,14 +1193,14 @@ a.pi-cta{text-decoration:none}
   padding:14px var(--pad-x);
   background:rgba(10,10,10,0.75);
   border-bottom:1px solid rgba(168,255,62,0.15);
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;
-  text-transform:uppercase;color:rgba(245,245,245,0.55);
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.07em;
+  text-transform:uppercase;color:rgba(245,245,245,0.65);
   position:relative;z-index:2}
 .trust-strip .trust-dot{width:4px;height:4px;border-radius:50%;
   background:var(--lime);opacity:0.7;flex-shrink:0}
 .trust-strip span:not(.trust-dot){white-space:nowrap}
 @media (max-width:480px){
-  .trust-strip{font-size:10px;gap:6px 14px;padding:12px var(--pad-x)}
+  .trust-strip{font-size:11px;gap:6px 14px;padding:12px var(--pad-x)}
   .trust-strip .trust-dot{display:none}
   .trust-strip span:not(.trust-dot)::after{content:' ·';color:var(--lime);margin-left:14px}
   .trust-strip span:last-child::after{display:none}
@@ -1240,8 +1256,8 @@ a.pi-cta{text-decoration:none}
   font-size:clamp(22px,3vw,40px);letter-spacing:-0.02em;
   color:var(--text);margin:0;max-width:48ch;line-height:1.1}
 .cta-block-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.cta-retainer-note{font-family:var(--f-mono);font-size:11px;
-  color:rgba(245,245,245,0.55);letter-spacing:.04em;margin:0;max-width:52ch}
+.cta-retainer-note{font-family:var(--f-mono);font-size:12px;
+  color:rgba(245,245,245,0.68);letter-spacing:.04em;margin:0;max-width:52ch}
 .cta-retainer-note a{color:var(--lime);text-decoration:none;
   border-bottom:1px solid rgba(168,255,62,0.3)}
 .cta-retainer-note a:hover{border-color:var(--lime)}
@@ -1257,10 +1273,10 @@ a.pi-cta{text-decoration:none}
   font-size:15px;line-height:1.5;font-style:italic;max-width:56ch}
 .s-services .svc-numbered .item .svc-outcome{color:rgba(245,245,245,0.8)}
 
-.svc-numbered .item .svc-who{font-family:var(--f-mono);font-size:10px;
+.svc-numbered .item .svc-who{font-family:var(--f-mono);font-size:11px;
   letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
   margin-top:10px}
-.svc-numbered .item .svc-who b{color:rgba(245,245,245,0.6);font-weight:500}
+.svc-numbered .item .svc-who b{color:rgba(245,245,245,0.7);font-weight:500}
 
 /* <!-- PRICING_TTD --> — swap final numbers in main.js */
 .svc-numbered .item .svc-ttd{font-family:var(--f-mono);font-size:11px;
@@ -1408,3 +1424,18 @@ section#process{background:rgba(6,6,6,0.72)}
   text-transform:uppercase;color:var(--muted);font-weight:500}
 .pip-body{color:#cfcfcf;font-size:15px;line-height:1.65;
   max-width:60ch;margin:12px 0 0;text-shadow:0 1px 10px rgba(0,0,0,0.85)}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION — global gate for every infinite animation.
+   The reveal system and hero already opt out individually; this
+   covers the marquees and decorative pulses (WCAG 2.3.3 / 2.2.2).
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion:reduce){
+  .marquee .track,
+  .tst-marquee .track,
+  .hsp-dot,
+  .hero .tag .pulse,
+  .hero .scroll .bar,
+  .tile .meta-row .real-dot,
+  .port-index .pi-card.on .pi-cta span{animation:none}
+}
