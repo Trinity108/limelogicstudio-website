@@ -24,7 +24,7 @@ If you add a new public file or image, add it to the whitelist in `deploy.sh`.
 ## Verify every deploy
 
 ```bash
-curl -s "https://limelogicstudio.com/?cb=$(date +%s)" | grep -i clash-display    # font present
+curl -s "https://limelogicstudio.com/?cb=$(date +%s)" | grep -i ClashDisplay       # font preload present
 curl -s "https://limelogicstudio.com/.git/config" | head -1                       # must be 404/html, NOT [core]
 curl -s -o /dev/null -w "%{http_code}\n" "https://limelogicstudio.com/DEPLOY.md"  # must be 404
 curl -sI "https://limelogicstudio.com/assets/images/og-image.jpg" | grep -i content-type  # image/jpeg
