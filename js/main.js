@@ -636,7 +636,6 @@ function initContactForm() {
       if (res.ok) {
         form.style.display = 'none';
         if (successEl) successEl.style.display = '';
-        if (window.plausible) window.plausible('Contact Form: Submit');
       } else {
         if (btn) { btn.disabled = false; btn.innerHTML = 'Send it <span class="arrow">&#8594;</span>'; }
         if (errorEl) { errorEl.textContent = 'Something went wrong — please email us at hello@limelogicstudio.com'; errorEl.style.display = ''; }

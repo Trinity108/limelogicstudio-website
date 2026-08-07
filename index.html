@@ -44,11 +44,10 @@
 <link rel="preload" href="assets/images/limedroid-hero-1920.webp" as="image" type="image/webp" media="(min-width:881px)">
 <link rel="preload" href="assets/images/limedroid-hero-1280.webp" as="image" type="image/webp" media="(max-width:880px)">
 <link rel="stylesheet" href="css/style.css" />
-<!-- ANALYTICS — Plausible (privacy-first, cookieless, no banner).
-     Combined script auto-tracks outbound link clicks (Discovery Call / WhatsApp)
-     and supports custom events. The init stub queues events fired before load. -->
-<script defer data-domain="limelogicstudio.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+<!-- ANALYTICS — none in this file, deliberately. Cloudflare Web Analytics is
+     enabled on the Pages project and Cloudflare injects its own beacon at the
+     edge, so there is no snippet to maintain here and nothing to keep in sync.
+     Cookieless, so the no-banner promise on /privacy stays true. -->
 <style>
   :root {
     --lime-intensity: 0.60;
