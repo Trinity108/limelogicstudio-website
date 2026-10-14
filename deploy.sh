@@ -22,7 +22,8 @@ for f in og-image.jpg \
          limedroid-hero-1920.webp \
          limedroid-hero-1280.webp \
          limedroid-hero.jpg \
-         logo-symbol.png; do
+         logo-symbol.png \
+         motion-reel-poster-v1.jpg; do
   cp "assets/images/$f" dist/assets/images/
 done
 

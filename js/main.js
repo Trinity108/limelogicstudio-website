@@ -733,6 +733,37 @@ function initFooterYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+
+// ─── SHOWREEL ────────────────────────────────────────────────────────────────
+// Loads the reel only when it nears the viewport; plays while visible.
+// Reduced-motion users get the poster + a play button instead of autoplay.
+function initShowreel() {
+  var v = document.getElementById('reelVideo');
+  if (!v) return;
+  var playBtn = document.getElementById('reelPlay');
+  var soundBtn = document.getElementById('reelSound');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var loaded = false, inView = false, userPlay = false;
+  function load() { if (!loaded) { v.src = v.dataset.src; loaded = true; } }
+  function tryPlay() { load(); var p = v.play(); if (p && p.catch) p.catch(function() { playBtn.hidden = false; }); }
+  if (reduce) playBtn.hidden = false;
+  playBtn.addEventListener('click', function() { userPlay = true; playBtn.hidden = true; tryPlay(); });
+  soundBtn.addEventListener('click', function() {
+    v.muted = !v.muted;
+    soundBtn.setAttribute('aria-pressed', String(!v.muted));
+    soundBtn.innerHTML = v.muted ? 'Sound on &#9834;' : 'Sound off';
+    if (!v.muted) { userPlay = true; playBtn.hidden = true; if (v.paused) { v.currentTime = 0; tryPlay(); } }
+  });
+  if (!('IntersectionObserver' in window)) { if (!reduce) tryPlay(); return; }
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      inView = e.isIntersecting;
+      if (inView && (!reduce || userPlay)) tryPlay();
+      else if (!inView && !v.paused) v.pause();
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.25 }).observe(v);
+}
+
 // ─── INIT ────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -745,4 +776,5 @@ document.addEventListener('DOMContentLoaded', function() {
   initContactForm();
   initScrollReveal();
   initFooterYear();
+  initShowreel();
 });
