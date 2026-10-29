@@ -74,7 +74,8 @@ var PORTFOLIO = [
   },
 ];
 
-// SERVICES_COPY — confirmed pricing + final outcome copy (updated 2026-05-28)
+// SERVICES_COPY — confirmed pricing + outcome copy (offer reset approved 2026-10-28;
+// canonical source: wiki/agency-operations/limelogic-service-pricing.md)
 var SERVICES = [
   {
     n: '01',
@@ -88,23 +89,14 @@ var SERVICES = [
   {
     n: '02',
     title: 'Campaign Content Engine',
-    outcome: 'Consistent, on-brand content every month — planned, produced, and scheduled. You review it. We handle everything else.',
-    deliverables: ['Monthly content calendar (shared 1 week ahead)', 'Social graphics + short-form video', 'Captions, scheduling + monthly analytics report'],
+    outcome: 'Twelve posts a month on Instagram and Facebook, four of them reels. You approve the calendar. We write it, make it, and schedule it.',
+    deliverables: ['12 posts / month incl. 4 reels', 'Instagram + Facebook, scheduled', 'Monthly report + 30-min call'],
     whoFor: 'Brands that need to show up consistently on social without managing it themselves.',
     retainer: true,
     pricingTTD: 'From TTD 4,050 / mo',
   },
   {
     n: '03',
-    title: 'AI Production Sprint',
-    outcome: 'Campaign-ready visuals and video in days — not weeks. AI-accelerated production without the AI-generic look.',
-    deliverables: ['AI-generated imagery + composites', 'Short-form video edits (9:16 + 1:1)', 'Brand-matched delivery, launch-ready'],
-    whoFor: 'Launches, campaigns, and moments that cannot wait three weeks for a traditional agency.',
-    retainer: false,
-    pricingTTD: 'From TTD 2,700',
-  },
-  {
-    n: '04',
     title: 'Web Build',
     outcome: 'A site that loads fast, reads clearly, and turns visitors into leads. The starting point for everything else we do together.',
     deliverables: ['Conversion-focused design + copywriting', 'Mobile-first, SEO-ready build', 'Cloudflare Pages deploy + handoff'],
@@ -113,19 +105,19 @@ var SERVICES = [
     pricingTTD: 'From TTD 8,000',
   },
   {
-    n: '05',
-    title: 'Motion + Launch Pack',
-    outcome: 'Video content that stops the scroll — from concept to final cut, delivered launch-ready. Built for campaigns, not archives.',
-    deliverables: ['Brand reels + promo videos', 'Social video cuts (9:16 + 1:1)', 'Launch campaign assets, packaged for distribution'],
-    whoFor: 'Product launches, seasonal campaigns, and brand moments that need movement.',
+    n: '04',
+    title: 'Launch Pack',
+    outcome: 'Everything a launch needs to move — imagery, reels, promo video and cuts for every feed. Ready in 5 to 7 days.',
+    deliverables: ['AI imagery + composites', 'Brand reels + promo videos', 'Social cuts (9:16 + 1:1), launch-ready'],
+    whoFor: 'Product launches, seasonal campaigns, and moments that cannot wait three weeks.',
     retainer: false,
     pricingTTD: 'From TTD 4,000',
   },
   {
-    n: '06',
+    n: '05',
     title: 'Monthly Growth Retainer',
-    outcome: 'Content, campaigns, strategy, and creative direction in one monthly partnership. No briefing three agencies. No dropped balls.',
-    deliverables: ['Content production + scheduling (3 platforms)', 'Campaign strategy + bi-weekly calls', 'Competitor monitoring + monthly performance review'],
+    outcome: 'Content, campaigns and strategy in one monthly partnership, with story reels voiced by Peter Sandy. Three clients at a time.',
+    deliverables: ['3 platforms, 8 reels / month', '2 story reels voiced in-studio', 'Bi-weekly calls + competitor summary', '1 paid campaign set up'],
     whoFor: 'Brands ready to treat marketing as infrastructure — not a one-off project.',
     retainer: true,
     pricingTTD: 'From TTD 11,500 / mo',
