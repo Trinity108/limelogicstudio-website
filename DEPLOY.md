@@ -21,6 +21,14 @@ If you add a new public file or image, add it to the whitelist in `deploy.sh`.
 - **Do NOT run `wrangler deploy`.** That reads a Workers config and ships a redundant **Worker**, which is *not* the live site. A stray Worker created this way leaked raw `.git` on its `*.workers.dev` URL; it was deleted 2026-05-29. This project intentionally has **no `wrangler.jsonc`** — pass flags instead.
 - **Do NOT rely on `git push`.** Pages is not GitHub-connected, so pushing changes nothing on the live domain. (Pushing to keep the repo in sync is fine; it just doesn't deploy.)
 
+## Bump the asset version when CSS or JS changes
+
+`css/` and `js/` are cached for a day at the Cloudflare edge (`_headers`). A deploy
+that changes them is invisible until that expires, unless the URL changes. Bump the
+`?v=YYYYMMDD` on `css/style.css` (index, privacy, terms) and `js/main.js` (index)
+in the same commit. On 2026-10-29 the offer-reset deploy served new HTML with day-old
+CSS and JS (unstyled Fix Kit card, old six services) until this was done.
+
 ## Verify every deploy
 
 ```bash
