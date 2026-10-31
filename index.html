@@ -42,7 +42,7 @@
 <link rel="preload" href="assets/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/images/limedroid-hero-1920.webp" as="image" type="image/webp" media="(min-width:881px)">
 <link rel="preload" href="assets/images/limedroid-hero-1280.webp" as="image" type="image/webp" media="(max-width:880px)">
-<link rel="stylesheet" href="css/style.css?v=20261029" />
+<link rel="stylesheet" href="css/style.css?v=20261031" />
 <!-- ANALYTICS — none in this file, deliberately. Cloudflare Web Analytics is
      enabled on the Pages project and Cloudflare injects its own beacon at the
      edge, so there is no snippet to maintain here and nothing to keep in sync.
@@ -181,14 +181,150 @@
           <h2 class="h-section">Work that <span style="color:var(--lime)">moves.</span></h2>
         </div>
         <div class="right">
-          <div class="subhead-caps">Real builds. Concept systems. Campaign-ready thinking.</div>
-          <div style="margin-top:8px">Real briefs, real clients, and the concept systems that show where we&#8217;re heading.</div>
+          <div class="subhead-caps">Real clients. Real numbers.</div>
+          <div style="margin-top:8px">Everything here is live or posted. Watch it, try it, then ask us for yours.</div>
         </div>
       </div>
-      <!-- PORTFOLIO_DATA — real project assets + updated card data drops in next pass -->
-      <div class="port-index" id="portIndex">
-        <div id="portfolioSections"><noscript><p style="color:var(--muted);padding:24px 0">Please enable JavaScript to view selected work.</p></noscript></div>
-        <div class="pi-card" id="piCard"></div>
+
+      <!-- PROOF_WALL — every stat traces to a source; see docs/portfolio-audit-2026-10-31.md -->
+      <div class="cases">
+
+        <article class="case reveal">
+          <div class="case-media tall">
+            <video class="work-reel" muted loop playsinline preload="none"
+              poster="assets/work/summit-shell-v1-poster.webp"
+              data-src="assets/work/summit-shell-v1.mp4"
+              aria-label="AI character reel: a woman's hair is a cracked porcelain shell; she breaks it off and her curls spring back soft."></video>
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span class="case-client">Summit Cosmetics</span><span>AI character reel</span></div>
+            <h3 class="case-title">The Shell</h3>
+            <p class="case-problem">Dry-season hair is a story every Trini knows. Summit needed a reel people would stop scrolling for.</p>
+            <p class="case-build">One character. One porcelain shell. One crack. Thirteen seconds.</p>
+            <div class="case-stat">
+              <span class="case-num">150%</span>
+              <span class="case-num-label">of Summit&#8217;s Instagram followers reached by one reel, with no partner tag. 64.6% watched past the first 3 seconds.</span>
+            </div>
+            <p class="case-source">Instagram Insights &#183; posted 25 Sep 2026</p>
+            <div class="case-ctas">
+              <a class="btn btn-lime" href="#services">Get reels like this &#8594;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case case--flip reveal">
+          <div class="case-media tall">
+            <img src="assets/work/mango-match-v1.webp" width="720" height="1280" loading="lazy"
+              alt="Mango Match start screen: Summit logo, Mango Bloom coming soon, How fast can you match the mangoes?" />
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span class="case-client">Summit Cosmetics</span><span>Event game</span></div>
+            <h3 class="case-title">Mango Match</h3>
+            <p class="case-problem">A 5K booth, and a product that wasn&#8217;t on shelves yet. How do you make people care about &#8220;coming soon&#8221;?</p>
+            <p class="case-build">A one-minute memory game on a tablet, using ten real Trinidad mango names. No signal at the booth? It runs offline, takes draw entries and ranks every player by time. Built in three days.</p>
+            <div class="case-stat">
+              <span class="case-num">470+</span>
+              <span class="case-num-label">reach on the event reel. Summit&#8217;s typical reel does about 127. More than half of viewers watched past 3 seconds.</span>
+            </div>
+            <p class="case-source">Instagram via Metricool &#183; Aug 2026</p>
+            <div class="case-ctas">
+              <a class="btn btn-lime" href="https://summit-mango-game.pages.dev" target="_blank" rel="noopener">Play the game &#8594;</a>
+              <a class="btn btn-ghost" href="#services">Plan your launch</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case case--wide reveal">
+          <div class="case-media wide">
+            <img src="assets/work/sparrow-monument-v1.webp" width="1280" height="800" loading="lazy"
+              alt="The Mighty Sparrow monument site: 1935 to 2026, He sang the news, with links to Watch, Play, Picong, Map and Crown." />
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span class="case-client">LimeLogic</span><span>Interactive tribute site</span></div>
+            <h3 class="case-title">The Mighty Sparrow Monument</h3>
+            <p class="case-problem">Calypso&#8217;s greatest storyteller deserved more than a post people scroll past.</p>
+            <p class="case-build">Thirteen front pages, a quiz and a map of his life, built in four days.</p>
+            <div class="case-stat">
+              <span class="case-num">96/100</span>
+              <span class="case-num-label">Google mobile performance score. 100 for accessibility, best practices and SEO.</span>
+            </div>
+            <p class="case-source">Google Lighthouse, mobile &#183; 4 Oct 2026</p>
+            <div class="case-ctas">
+              <a class="btn btn-lime" href="https://sparrow-monument.pages.dev" target="_blank" rel="noopener">Visit the monument &#8594;</a>
+              <a class="btn btn-ghost" href="#services">Get a site like this</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="work-grid">
+
+        <article class="work-tile reveal">
+          <div class="work-tile-media tall">
+            <video class="work-reel" muted loop playsinline preload="none"
+              poster="assets/work/valentino-v1-poster.webp"
+              data-src="assets/work/valentino-v1.mp4"
+              aria-label="Black-and-white memorial reel framed in kente panels: Brother Valentino on stage at Kafé Blue, captioned Life is a stage."></video>
+          </div>
+          <div class="work-tile-body">
+            <div class="case-meta"><span class="case-client">Kafé Blue</span><span>Memorial reel</span></div>
+            <h3>Brother Valentino</h3>
+            <p>Filmed at his final show and cut into a 64-second farewell in the family&#8217;s yellow. Shared on the day of his funeral.</p>
+            <p class="work-tile-note">7 July 1941 &#8211; 21 October 2026</p>
+          </div>
+        </article>
+
+        <article class="work-tile reveal">
+          <div class="work-tile-media tall">
+            <video class="work-reel" muted loop playsinline preload="none"
+              poster="assets/work/late-nite-v1-poster.webp"
+              data-src="assets/work/late-nite-v1.mp4"
+              aria-label="Gold and red event reel: A musical tribute to a legend, the Mighty Sparrow and King David Rudder, Late Nite Special at Kafé Blue."></video>
+          </div>
+          <div class="work-tile-body">
+            <div class="case-meta"><span class="case-client">Kafé Blue</span><span>Event promo reel</span></div>
+            <h3>Late Nite Special</h3>
+            <p>A tribute night to the Mighty Sparrow with King David Rudder. One reel carries the lineup, the date and the ticket.</p>
+          </div>
+        </article>
+
+        <article class="work-tile reveal">
+          <div class="work-tile-media tall">
+            <video class="work-reel" muted loop playsinline preload="none"
+              poster="assets/work/summit-cp-v1-poster.webp"
+              data-src="assets/work/summit-cp-v1.mp4"
+              aria-label="Pink motion reel: hair match quiz questions, a Curl Defining Gel match, Island Magic in a Bottle, Summit logo."></video>
+          </div>
+          <div class="work-tile-body">
+            <div class="case-meta"><span class="case-client">Summit Cosmetics</span><span>Motion reel + quiz</span></div>
+            <h3>Find your match</h3>
+            <p>A code-built reel that sends people to a live quiz. Five questions, one product match, emailed results.</p>
+            <a class="work-tile-link" href="https://summit-hair-quiz.pages.dev" target="_blank" rel="noopener">Take the quiz &#8594;</a>
+          </div>
+        </article>
+
+        <article class="work-tile reveal">
+          <div class="work-tile-media tall">
+            <img src="assets/work/code-red-mobile-v1.webp" width="540" height="960" loading="lazy"
+              alt="Code Red Security homepage on a phone: When it matters most, we're there, with a red Get a Quote button." />
+          </div>
+          <div class="work-tile-body">
+            <div class="case-meta"><span class="case-client">Code Red Security</span><span>Website</span></div>
+            <h3>Code Red Security</h3>
+            <p>Licensed officers, rapid response, across T&amp;T. Said in one screen, with the quote button right there.</p>
+            <a class="work-tile-link" href="https://coderedtt.com" target="_blank" rel="noopener">Visit the site &#8594;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="also-live reveal">
+        <span class="also-live-label">Also live</span>
+        <a href="https://steel-and-voices-mavis-john.vercel.app" target="_blank" rel="noopener"><b>Steel &amp; Voices</b> &#183; Mavis John retrospective &#8594;</a>
+        <a href="https://carnival-mirror.pages.dev" target="_blank" rel="noopener"><b>Carnival Mirror</b> &#183; AI costume try-on &#8594;</a>
+        <a href="https://hooks.limelogicstudio.com" target="_blank" rel="noopener"><b>Trini Hook Generator</b> &#183; free tool &#8594;</a>
+        <a href="https://limelogic-ai-audit.pages.dev" target="_blank" rel="noopener"><b>Business AI Audit</b> &#183; free, 2 minutes &#8594;</a>
       </div>
     </div>
   </section>
@@ -276,7 +412,7 @@
     </div>
   </div>
 
-  <!-- TESTIMONIALS_SCAFFOLD — real testimonials replacing proof-in-progress when collected -->
+  <!-- PROOF — measured numbers only, each with its source. Client quotes slot in above .proof-stats when collected. -->
   <section class="s" id="proof">
     <div class="wrap">
       <div class="sec-head">
@@ -287,14 +423,35 @@
             <span>/ PROOF</span>
             <span class="rule"></span>
           </div>
-          <h2 class="h-section">In other <span style="color:var(--lime)">people&#8217;s words.</span></h2>
+          <h2 class="h-section">Numbers, not <span style="color:var(--lime)">adjectives.</span></h2>
         </div>
         <div class="right">
-          <div class="subhead-caps">Proof in progress.</div>
-          <div style="margin-top:8px">Real client testimonials are being collected now. Until they land, here&#8217;s what drives every project.</div>
+          <div class="subhead-caps">Measured, dated, sourced.</div>
+          <div style="margin-top:8px">Every figure comes from the platform that measured it.</div>
         </div>
       </div>
-      <div class="tst-editorial" id="tstEditorial"></div>
+      <div class="proof-stats">
+        <div class="proof-stat reveal">
+          <span class="proof-stat-num">150%</span>
+          <p>of Summit&#8217;s Instagram followers reached by one AI character reel, with no partner tag.</p>
+          <span class="proof-stat-src">Instagram Insights &#183; Sep 2026</span>
+        </div>
+        <div class="proof-stat reveal">
+          <span class="proof-stat-num">3.7&#215;</span>
+          <p>Summit&#8217;s typical reel reach, on the reel for a booth game we built in three days.</p>
+          <span class="proof-stat-src">Metricool &#183; 470 vs median 127 &#183; Aug 2026</span>
+        </div>
+        <div class="proof-stat reveal">
+          <span class="proof-stat-num">96/100</span>
+          <p>Google mobile performance score on a tribute site with thirteen front pages, built in four days.</p>
+          <span class="proof-stat-src">Google Lighthouse &#183; Oct 2026</span>
+        </div>
+        <a class="proof-stat proof-stat--cta reveal" href="https://start.limelogicstudio.com/fix" target="_blank" rel="noopener">
+          <span class="proof-stat-num">You?</span>
+          <p>Your page and your replies, fixed in 48 hours. TT$950, one payment.</p>
+          <span class="proof-stat-src">Start with the Fix Kit &#8594;</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -573,7 +730,7 @@
 })();
 </script>
 
-<script src="js/main.js?v=20261029"></script>
+<script src="js/main.js?v=20261031"></script>
 
 <!-- Mobile menu — direct child of body so position:fixed;inset:0 always means full viewport.
      Must NOT be inside .nav: nav has backdrop-filter which creates a containing block in

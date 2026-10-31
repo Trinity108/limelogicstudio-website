@@ -12,9 +12,9 @@ mkdir -p dist/assets/images
 # Pages + config
 cp index.html privacy.html terms.html 404.html _headers dist/
 
-# Styles, scripts, fonts, video
+# Styles, scripts, fonts, video, portfolio media
 cp -R css js dist/
-cp -R assets/fonts assets/video dist/assets/
+cp -R assets/fonts assets/video assets/work dist/assets/
 
 # Images — referenced files only. The original limedroid-hero.jpg stays until
 # cached HTML pointing at it (4h TTL) has expired everywhere.
@@ -29,4 +29,6 @@ done
 
 find dist -name ".DS_Store" -delete
 
-npx wrangler pages deploy dist --project-name=limelogicstudio-website --branch=main --commit-dirty=true
+# Optional first arg = Pages branch. main (default) is production; anything else is a preview URL.
+BRANCH="${1:-main}"
+npx wrangler pages deploy dist --project-name=limelogicstudio-website --branch="$BRANCH" --commit-dirty=true
