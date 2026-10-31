@@ -23,6 +23,9 @@ for f in og-image.jpg \
          limedroid-hero-1280.webp \
          limedroid-hero.jpg \
          logo-symbol.png \
+         favicon.ico \
+         favicon-192.png \
+         apple-touch-icon.png \
          motion-reel-poster-v1.jpg; do
   cp "assets/images/$f" dist/assets/images/
 done
